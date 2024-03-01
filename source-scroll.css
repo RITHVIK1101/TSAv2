@@ -1,0 +1,249 @@
+
+  .energy-sources {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.source-item {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    animation-duration: 1s; /* Duration of the slide animation */
+}
+  .energy-sources {
+    filter: blur(0); 
+  }
+  
+
+  .source-content {
+    position: relative;
+    z-index: 2;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 8%;
+    padding-bottom: 7%;
+    height: 60%;
+  }
+  .source-body-text video {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 10%;
+  }
+  .source-body-text {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    
+    height: 100%;
+   
+    border-radius: 10%;    
+    font-size: 1.6em;
+    background-color: rgba(185, 185, 185, 0.457);
+    border: 2px solid #ffffff;
+    transition: transform 0.75s ease;
+    padding:5%;
+    text-align: center;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.285);
+    color: rgb(2, 251, 151);
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border-radius: 10%;
+}
+.overlay h2 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 4.2em;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #d7dfd8 10%, #07ce35fd 40%, #06c34bfd 40%, #dde8dc 90%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+  .source-body-text:hover {
+    transform: scale(1.05);
+  }
+  .source-body-text:hover .overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show overlay when not hovered */
+.source-body-text:not(:hover) .overlay {
+    opacity: 1;
+}
+
+  .literata {
+    font-family: "Literata", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .card__data {
+    text-align: center;
+    width: 94.5%;
+    height:68.5vh;
+    background-color: rgba(245, 242, 238, 0.634);
+    padding: 1.5rem 2rem;
+    color:black;
+    position: absolute;
+    bottom: -10rem;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    opacity: 0;
+    transition: opacity 1s 1s;
+    border-radius: 10%;
+  }
+  
+  .card__description {
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: .25rem;
+  }
+  
+  .card__title {
+    font-size: var(--h2-font-size);
+    font-weight: 500;
+    color: var(--title-color);
+    margin-bottom: .75rem;
+  }
+  
+  .card__button {
+    text-decoration: none;
+    font-size: var(--small-font-size);
+    font-weight: 500;
+    color: var(--first-color);
+  }
+  
+  .card__button:hover {
+    text-decoration: underline;
+  }
+  
+  /* Naming animations in hover */
+  .source-body-text:hover .card__data {
+    animation: show-data 1.5s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+  }
+  
+  .source-body-text:not(:hover) .card__data {
+    animation: remove-data 0.5s forwards;
+  }
+  
+  /* Card animation */
+  @keyframes show-data {
+   
+    100% {
+      transform: translateY(-10rem);
+    }
+  }
+  
+  
+  
+  @keyframes remove-data {
+    0% {
+      transform: translateY(10rem);
+    }
+    50% {
+      transform: translateY(29rem);
+    }
+    100% {
+      transform: translateY(50rem);
+    }
+  }
+  
+  .source-item {
+    display: none; /* Initially hide all slides */
+  }
+  
+  .source-item.active {
+    display: block; /* Display the active slide */
+    animation-duration: 1s; /* Duration of the slide animation */
+  }
+  .slide-down {
+    animation-name: slideDown; /* Use slideDown animation for transitioning */
+  }
+  .slide-up {
+    animation-name: slideUp; /* Use slideUp animation for transitioning */
+}
+@keyframes slideUp {
+  from {
+      transform: translateY(100%); /* Start from below the container */
+  }
+  to {
+      transform: translateY(0); /* Slide up to the top of the container */
+  }
+}
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%); /* Start from above the container */
+    }
+    to {
+      transform: translateY(0); /* Slide down to the top of the container */
+    }
+  }
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    z-index: 1;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+  .indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.indicator {
+    width: 5em;
+    height: 0.35em;
+    border-radius: 10%;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 3em;
+   
+    margin: 3em 0.9em;
+}
+
+.indicator.active {
+    background-color: rgb(6, 241, 92);
+}
