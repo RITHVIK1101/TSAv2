@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News/Press Page</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        .navbar {
+  position: fixed; 
+  top: 0;
+  height: 50px; 
+}
+
+.title {
+  margin-top: 2em; 
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: none;
+            margin: 20px 0;
+            padding: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+            width: 100%;
+            padding-left: 10px;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+        }
+
+        .subheading {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 30px;
+            margin-top: -5px;
+            text-align: left;
+            width: 100%;
+            padding-left: 10px;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            color: #4caf50;
+        }
+
+        .card {
+            background-color: #000000;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            text-decoration: none;
+            width: calc(33.33% - 20px);
+            margin-right: 20px;
+            margin-left: 0;
+            box-sizing: border-box;
+        }
+
+        .card:last-child {
+            margin-right: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+            padding: 0px;
+            border-radius: 5px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+        }
+
+        .card-info {
+            font-size: 0.8rem;
+            color: #bab9b9;
+            margin-bottom: 10px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: #b4b3b3;
+            margin-bottom: 10px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html">
+          <div class="logo">
+              <img src="imgs/logo.png" alt="Logo">
+          </div>
+      </a>
+      <ul class="menu">
+        <li class="menu-item"><a href="about-us.html">ABOUT US</a></li>
+        <li class="menu-item dropdown">
+          <a href="#">SOLUTIONS</a>
+          <div class="dropdown-content solution-dropdown"> <!-- Added a specific class for the dropdown under Solutions -->
+            <a href="wind.html">Wind Energy</a>
+            <a href="solar.html">Solar Energy</a>
+            <a href="biomass.html">Biomass Energy</a>
+            <a href="heat-pump.html">Heat Pumps</a>
+          </div>
+        </li>
+        <li class="menu-item"><a href="tax-incentives.html">TAX INCENTIVES</a></li>
+        <li class="menu-item"><a href="press.html">PRESS</a></li>
+        <li class="menu-item dropdown">
+          <a href="#">TSA</a>
+          <div class="dropdown-content tsa-dropdown">
+            <a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a>
+              <a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a>
+              <a href="pdfs/TSA Webmaster Works Cited.pdf">Sources</a>
+              <a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a>
+          </div>
+        </li>
+      </ul>
+      </nav>
+    <div class="container">
+        <h1 class="title">EarthWise Recent News</h1>
+        <h2 class="subheading">Explore the latest in green energy!</h2>
+        <a href="EmbraceCleanEnergy.html" class="card">
+            <img src="house.png" alt="Article Image">
+            <div class="card-content">
+                <div class="card-title">Embrace Clean Energy and Transform Your Home Today!</div>
+                <div class="card-info">Aarush Uli - October 15, 2023</div>
+                <div class="card-text">As the world grapples with the urgent need for sustainable living practices,
+                    homeowners are increasingly
+                    turning to clean energy solutions to reduce their carbon footprint and embrace a greener
+                    lifestyle...</div>
+            </div>
+        </a>
+
+        <a href="PerovskiteSolar.html" class="card">
+            <img src="solarCells.png" alt="Article Image">
+            <div class="card-content">
+                <div class="card-title">Revolutionizing Solar Energy: The Promise of Perovskite Solar Cells</div>
+                <div class="card-info">Rik Rathinasabapathy - January 10, 2024</div>
+                <div class="card-text">In the realm of renewable energy, solar power stands at the forefront as a
+                    promising solution to combat climate change and meet the world's growing energy demands sustainably.
+                    Traditional silicon-based solar panels...
+                </div>
+            </div>
+        </a>
+
+        <a href="solarVsWind.html" class="card">
+            <img src="solarwind.png" alt="Article Image">
+            <div class="card-content">
+                <div class="card-title">Solar vs. Wind Power: Which Is Better for Your Home?</div>
+                <div class="card-info">Aadesh Kumar - Septemeber 1, 2023</div>
+                <div class="card-text">When considering renewable energy options for residential use, solar and wind
+                    energy often emerge as top contenders. Both offer sustainable alternatives to traditional fossil
+                    fuels, but their...</div>
+            </div>
+        </a>
+
+        <a href="partnership.html" class="card">
+            <img src="handshake.png" alt="Article Image">
+            <div class="card-content">
+                <div class="card-title">EarthWise and Vestas Unite to Revolutionize Home Renewable Energy Solutions
+                </div>
+                <div class="card-info">Ishan Jain - November 31, 2024</div>
+                <div class="card-text">In a groundbreaking move towards sustainable living, EarthWise, the leading
+                    platform for homeowners seeking
+                    renewable energy solutions, has announced an unprecedented collaboration with...</div>
+            </div>
+        </a>
+
+        <a href="workshop.html" class="card">
+            <img src="greenWorkshop.png" alt="Article Image">
+            <div class="card-content">
+                <div class="card-title">EarthWise Is Inviting You to Explore Sustainable Home Design in Virtual
+                    Workshop!</div>
+                <div class="card-info">EarthWise Team - December 26, 2023</div>
+                <div class="card-text">EarthWise, a leading advocate for sustainable living, is excited to announce an
+                    upcoming virtual workshop
+                    focused on sustainable home design. This event, scheduled for June 2024, will provide homeowners...
+                </div>
+            </div>
+        </a>
+
+        <a href="diyprojects.html" class="card">
+            <img src="diy.png" alt="Article Image">
+            <div class="card-content">
+                <div class="card-title">5 DIY Projects to Reduce Your Carbon Footprint and Go Green on a Budget</div>
+                <div class="card-info">Vedanth Vijay - February 29, 2024</div>
+                <div class="card-text">In a world increasingly concerned about environmental sustainability, many
+                    homeowners are eager to do their
+                    part in reducing their carbon footprint. Luckily, there are numerous do-it-yourself (DIY)
+                    projects...</div>
+            </div>
+        </a>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-column">
+            <h3>Earthwise</h3>
+            <p>Earthwise is an informational website committed to demystifying renewable energy solutions
+              offering detailed insights into their workings, installation processes, and benefits. 
+              Through our platform, users can connect with local businesses specializing in sustainable energy solutions and explore tax incentives to make eco-conscious choices more accessible. 
+            </p>
+          
+          </div>
+          <div class="footer-column">
+            <h3>Sections</h3>
+            <p><a href="about-us.html">About Us</a></p>
+            <p><a href="wind.html">Solutions</a></p>
+            <p><a href="tax-incentives.html">Tax Incentives</a></p>
+            <p><a href="press.html">Press</a></p>
+          </div>
+          <div class="footer-column">
+            <h3>Links</h3>
+            <p><a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a></p>
+            <p><a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a></p>
+            <p><a href="pdfs/TSA Webmaster Works Cited.pdf">Sources</a></p>
+            <p><a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Earthwise All rights reserved.</p>
+        </div>
+      </footer>
+</body>
+
+</html>
