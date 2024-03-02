@@ -67,7 +67,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.285);
+    background-color: rgba(0, 0, 0, 0.349);
     color: rgb(2, 251, 151);
     padding: 20px;
     border-radius: 8px;
@@ -79,9 +79,8 @@
     font-family: "Poppins", sans-serif;
     font-size: 4.2em;
     font-weight: 700;
-    background-image: linear-gradient(to right, #d7dfd8 10%, #07ce35fd 40%, #06c34bfd 40%, #dde8dc 90%);
-    -webkit-background-clip: text;
-    color: transparent;
+    color:white;
+    
 }
   .source-body-text:hover {
     transform: scale(1.05);
@@ -105,9 +104,9 @@
     text-align: center;
     width: 94.5%;
     height:68.5vh;
-    background-color: rgba(245, 242, 238, 0.634);
+    background-color: rgba(245, 242, 238, 0.789);
     padding: 1.5rem 2rem;
-    color:black;
+    color:#624c4c;
     position: absolute;
     bottom: -10rem;
     left: 0;
@@ -120,8 +119,9 @@
   
   .card__description {
     display: block;
-    font-size: var(--small-font-size);
-    margin-bottom: .25rem;
+    font-size: 2.5em;
+    margin-top: 2.4rem;
+    color:#04130e;
   }
   
   .card__title {
@@ -130,27 +130,41 @@
     color: var(--title-color);
     margin-bottom: .75rem;
   }
+  .card__button{
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
   
   .card__button {
-    text-decoration: none;
-    font-size: var(--small-font-size);
-    font-weight: 500;
-    color: var(--first-color);
+    background-color: white; 
+    color: black; 
+    border: 2px solid #04130e;
   }
   
   .card__button:hover {
-    text-decoration: underline;
+    background-color: #06ee99;
+    color: rgb(10, 1, 1);
   }
+
   
   /* Naming animations in hover */
   .source-body-text:hover .card__data {
-    animation: show-data 1.5s forwards;
+    animation: show-data 1s forwards;
     opacity: 1;
     transition: opacity .3s;
   }
   
   .source-body-text:not(:hover) .card__data {
-    animation: remove-data 0.5s forwards;
+    animation: remove-data 0s forwards;
   }
   
   /* Card animation */
@@ -225,7 +239,7 @@
 
   .indicators {
     position: absolute;
-    bottom: 20px;
+    bottom: 0.1em;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -245,5 +259,5 @@
 }
 
 .indicator.active {
-    background-color: rgb(6, 241, 92);
+    background-color: rgb(10, 179, 58);
 }
