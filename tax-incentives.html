@@ -1,89 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tax Incentives</title>
-<link rel="stylesheet" href="tax-incentives.css"> <!-- Link your CSS file here -->
-<link rel="stylesheet" href="navbar.css">
-<link rel="stylesheet" href="footer.css">
-</head>
-<body>
-  <nav class="navbar">
-    <a href="index.html">
-      <div class="logo">
-          <img src="imgs/logo.png" alt="Logo">
-      </div>
-  </a>
-  <ul class="menu">
-    <li class="menu-item"><a href="about-us.html">ABOUT US</a></li>
-    <li class="menu-item dropdown">
-      <a href="#">SOLUTIONS</a>
-      <div class="dropdown-content solution-dropdown"> <!-- Added a specific class for the dropdown under Solutions -->
-        <a href="wind.html">Wind Energy</a>
-        <a href="solar.html">Solar Energy</a>
-        <a href="biomass.html">Biomass Energy</a>
-        <a href="heat-pump.html">Heat Pumps</a>
-      </div>
-    </li>
-    <li class="menu-item"><a href="tax-incentives.html">TAX INCENTIVES</a></li>
-    <li class="menu-item"><a href="press.html">PRESS</a></li>
-    <li class="menu-item dropdown">
-      <a href="#">TSA</a>
-      <div class="dropdown-content tsa-dropdown">
-        <a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a>
-          <a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a>
-          <a href="pdfs/TSA Webmaster Works Cited.pdf">Sources</a>
-          <a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a>
-      </div>
-    </li>
-  </ul>
-  </nav>
-<div class="overlay"></div>
-<div class="content">
-    <!-- Your content here -->
-    <h1>Welcome to Tax Incentives</h1>
-    <p>Explore our range of tax incentives to boost your savings!</p>
-    <div class="search-dropdown">
-        <select id="energy-dropdown">
-            <option value="">Select an option</option>
-            <option value="solar">Solar Energy</option>
-            <option value="biomass">Biomass Energy</option>
-            <option value="wind">Wind Energy</option>
-            <option value="heatpump">Heat Pump</option>
-        </select>
-    </div>
-</div>
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-column">
-      <h3>Earthwise</h3>
-      <p>Earthwise is an informational website committed to demystifying renewable energy solutions
-        offering detailed insights into their workings, installation processes, and benefits. 
-        Through our platform, users can connect with local businesses specializing in sustainable energy solutions and explore tax incentives to make eco-conscious choices more accessible. 
-      </p>
-    
-    </div>
-    <div class="footer-column">
-      <h3>Sections</h3>
-      <p><a href="about-us.html">About Us</a></p>
-      <p><a href="wind.html">Solutions</a></p>
-      <p><a href="tax-incentives.html">Tax Incentives</a></p>
-      <p><a href="press.html">Press</a></p>
-    </div>
-    <div class="footer-column">
-      <h3>Links</h3>
-      <p><a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a></p>
-      <p><a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a></p>
-      <p><a href="pdfs/TSA Webmaster Works Cited.pdf">Sources</a></p>
-      <p><a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2024 Earthwise All rights reserved.</p>
-  </div>
-</footer>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title style="text-align: center">
+      Green Energy Tax Incentives in Washington State
+    </title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+      .navbar{
+    position:fixed;
+    top: 0;
+  height: 50px; 
+  }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        font-family: "Poppins", sans-serif;
+      }
+      
+      main {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: space-around;
+      }
 
-<script src="tax-incentives.js"></script> <!-- Link your JavaScript file here -->
-</body>
+      section {
+        width: 30%;
+        margin: 10px;
+        border: 2px solid #4caf50;
+        padding: 20px;
+        
+      }
+
+      
+      h2,
+      h3 {
+
+        color: #4caf50;
+        text-align: center;
+        font-family:Poppins ;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      ul {
+        list-style-type: square;
+        margin-left: 20px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      footer {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .head {
+  margin-top: 9rem; /* Adjust this value to move the text further down */
+  text-align: center;
+  background-image: linear-gradient(to right, #02371bc3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%); /* Brown to Orange to Green gradient */
+    -webkit-background-clip: text; /* Apply background to the text */
+    color: transparent;
+    font-size: 1.6rem;
+}
+.box:hover{
+    transform: scale(1.025);
+    transition: transform 0.75s ease, box-shadow 0.75s ease;
+    box-shadow: 20px 20px 25px #0f0f0f90;
+}
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="index.html">
+        <div class="logo">
+            <img src="imgs/logo.png" alt="Logo">
+        </div>
+    </a>
+    <ul class="menu">
+      <li class="menu-item"><a href="about-us.html">ABOUT US</a></li>
+      <li class="menu-item dropdown">
+        <a href="#">SOLUTIONS</a>
+        <div class="dropdown-content solution-dropdown"> <!-- Added a specific class for the dropdown under Solutions -->
+          <a href="wind.html">Wind Energy</a>
+          <a href="solar.html">Solar Energy</a>
+          <a href="biomass.html">Biomass Energy</a>
+          <a href="heat-pump.html">Heat Pumps</a>
+        </div>
+      </li>
+      <li class="menu-item"><a href="tax-incentives.html">TAX INCENTIVES</a></li>
+      <li class="menu-item"><a href="press.html">PRESS</a></li>
+      <li class="menu-item dropdown">
+        <a href="#">TSA</a>
+        <div class="dropdown-content tsa-dropdown">
+          <a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a>
+            <a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a>
+            <a href="pdfs/TSA Webmaster Works Cited(1).pdf">Sources</a>
+            <a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a>
+        </div>
+      </li>
+    </ul>
+    </nav>
+    <div class="head">
+      <h1>Green Energy Tax Incentives in the US and WA State</h1>
+    </div>
+
+    <main>
+      <section class="box" id="solar">
+        <img src="solar.jpeg" alt="Solar Panels" />
+        <h2>Solar Energy Tax Incentives</h2>
+        <p>
+          Investing in solar panels not only benefits the environment but also
+          offers various tax incentives for residential homes in Washington
+          State:
+        </p>
+
+        <h3>Washington State Incentives:</h3>
+        <ul>
+          <li>
+            <strong>Sales Tax Exemption:</strong> Washington State offers a
+            complete sales tax exemption on the purchase of solar panels for
+            residential use, reducing the overall installation costs
+            significantly.
+          </li>
+          <li>
+            <strong>Property Tax Exemption:</strong> Homeowners installing solar
+            panels can enjoy a 100% property tax exemption on the added home
+            value resulting from the system installation, providing long-term
+            financial relief.
+          </li>
+          <li>
+            <strong>Production Incentive Program:</strong> The Production
+            Incentive Program (Renewable Energy System Cost Recovery) ensures
+            that homeowners receive payments based on the electricity their
+            solar panels generate over a specified period, further incentivizing
+            solar energy production.
+          </li>
+        </ul>
+
+        <h3>Federal Incentives:</h3>
+        <ul>
+          <li>
+            <strong>Solar Investment Tax Credit (ITC):</strong> The federal
+            Solar ITC allows homeowners to claim a tax credit of up to 26% of
+            the total cost of installing solar panels, covering expenses related
+            to both equipment and installation.
+          </li>
+          <li>
+            <strong>Residential Renewable Energy Tax Credit:</strong> Homeowners
+            can claim a credit for 26% of qualified expenditures for solar
+            panels installed on their primary residence. This credit decreases
+            to 22% in the following year and is expected to continue decreasing
+            in subsequent years.
+          </li>
+        </ul>
+      </section>
+
+      <section class="box" id="biomass">
+        <img src="biomass.jpeg" alt="Biomass Energy System" />
+        <h2>Biomass Energy Tax Incentives</h2>
+        <p>
+          Biomass energy systems offer a sustainable heating alternative for
+          residential homes in Washington State. Explore the tax incentives for
+          biomass systems:
+        </p>
+
+        <h3>Washington State Incentives:</h3>
+        <ul>
+          <li>
+            <strong>Sales Tax Exemption:</strong> Washington State provides a
+            sales tax exemption for the purchase of biomass energy systems used
+            for residential heating, ensuring a more affordable transition to
+            sustainable heating solutions.
+          </li>
+          <li>
+            <strong>Property Tax Exemption:</strong> Homeowners investing in
+            biomass energy systems may qualify for a property tax exemption on
+            the added home value resulting from the system installation,
+            mitigating the financial impact of adopting biomass energy.
+          </li>
+          <li>
+            <strong>Production Incentive Program:</strong> Washington State's
+            Production Incentive Program supports biomass energy production by
+            offering financial incentives based on the energy produced by
+            residential systems, promoting the use of renewable energy.
+          </li>
+        </ul>
+
+        <h3>Federal Incentives:</h3>
+        <ul>
+          <li>
+            <strong>Residential Energy Efficient Property Credit:</strong> The
+            federal Residential Energy Efficient Property Credit provides a tax
+            credit of up to 26% for the installation of biomass stoves used for
+            heating residences, making biomass heating more financially
+            attractive for homeowners.
+          </li>
+          <li>
+            <strong>Renewable Energy Production Tax Credit (PTC):</strong>
+            Although not specific to residential use, the federal PTC includes
+            biomass as a qualifying energy source, indirectly contributing to
+            the growth of biomass energy and supporting businesses and utilities
+            utilizing biomass for electricity generation.
+          </li>
+        </ul>
+      </section>
+
+      <section class="box" id="heat-pump">
+        <img src="heat_pump.jpeg" alt="Heat Pump" />
+        <h2>Heat Pump Tax Incentives</h2>
+        <p>
+          Heat pumps offer energy-efficient heating and cooling solutions.
+          Explore the tax incentives for heat pump systems in Washington State:
+        </p>
+
+        <h3>Washington State Incentives:</h3>
+        <ul>
+          <li>
+            <strong>Sales Tax Exemption:</strong> Washington State provides a
+            sales tax exemption for the purchase of energy-efficient heat pump
+            systems, reducing the overall cost of installation.
+          </li>
+          <li>
+            <strong>Property Tax Exemption:</strong> Homeowners installing heat
+            pump systems may qualify for a property tax exemption on the added
+            home value resulting from the system installation, promoting the
+            adoption of energy-efficient solutions.
+          </li>
+          <li>
+            <strong>Utility Rebates:</strong> Various utility companies in
+            Washington State offer rebates and incentives for installing
+            energy-efficient heat pumps, making them a cost-effective choice for
+            homeowners.
+          </li>
+        </ul>
+
+        <h3>Federal Incentives:</h3>
+        <ul>
+          <li>
+            <strong>Residential Renewable Energy Tax Credit:</strong> Homeowners
+            can claim a tax credit for a percentage of qualified expenditures
+            for installing energy-efficient heat pump systems, contributing to
+            the reduction of both heating and cooling costs.
+          </li>
+          <li>
+            <strong>Energy Efficiency Tax Credits:</strong> The federal
+            government offers additional tax credits for energy-efficient home
+            improvements, including heat pump installations, as part of its
+            commitment to promoting sustainable practices.
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
 </html>
