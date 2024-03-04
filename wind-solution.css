@@ -190,34 +190,6 @@
 
 
 
-/* Website Link on Bottom */
-.website {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: white;
-    padding-bottom: 10%;
-    padding-top: 2.5%;
-}
-
-.website-image {
-    max-width: 80%;
-    margin-bottom: 20px;
-}
-
-.buy-now-button {
-    padding: 15px 30px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    border: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.buy-now-button:hover {
-    background-color: #1e6121;
+.footer p{
+  color:white;
 }
