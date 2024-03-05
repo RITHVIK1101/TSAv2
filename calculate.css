@@ -11,18 +11,18 @@
   
   .calc-column {
     flex: 1;
-    padding: 20px;
+    padding: 2%;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 2.5px 5px 12px #46464649;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 20px;
+    margin: 2%;
   }
   .carbon-footprint-explainer {
-    font-size: 1.1em;
-    margin-bottom: 20px;
+    font-size: 1.1vw;
+    margin-bottom: 2%;
     color: #666;
   }
   .calculator {
@@ -37,16 +37,16 @@
   }
   .calc-container select {
     width: 100%;
-    padding: 8px;
+    padding: 1%;
     border: 1px solid #cccccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 10px;
+    margin-bottom: 2%;
   }
   .calc-container button {
     background-color: #4caf50;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 1.5% 3%;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -72,7 +72,7 @@
 
   .rounded-image{
     border-radius: 10px;
-    max-width: 580px;
+    max-width: 60vw;
     height: auto;
     transition: transform 0.75s ease, box-shadow 0.75s ease;
     box-shadow: 2.5px 5px 12px #1d1d1d90;

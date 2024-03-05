@@ -116,6 +116,22 @@
             opacity: 0.5;
             /* Change opacity on hover */
         }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background-color: #f3f3f3;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+          }
+          
+          .progress-bar {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0;
+          }
     </style>
 </head>
 
@@ -194,6 +210,12 @@
             the advantages and limitations of each renewable energy source, homeowners can make informed choices that
             align with their unique circumstances and contribute to a cleaner, greener future.</p>
     </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+    <script src ="progress-bar.js"></script>
+
     <footer class="footer">
         <div class="footer-container">
           <div class="footer-column">

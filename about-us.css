@@ -119,7 +119,7 @@ button {
 }
  
 button:hover {
-    background-color: #06ef5f;
+    background-color: #1f9405;
 }
 
 .team {
@@ -127,13 +127,62 @@ button:hover {
     text-align: center;
 }
  
-.team h3 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-shadow: 0.5px 0.5px #020601;
-    color:#06ef6f;
-}
 .team h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color: #666;
+}
+ 
+.team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+ 
+.card {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 18rem;
+    height: 12rem;
+    margin-top: 10px;
+}
+ 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+ 
+.card-img {
+    width: 18rem;
+    height: 12rem;
+}
+ 
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.card-info {
+    padding-bottom: 20px;
+}
+ 
+.card-info button {
+    margin: 1rem 1rem;
+}
+ 
+.card-name {
+    color: #666;
+    font-size: 2rem;
+    margin: 10px 0;
+}
+ 
+.card-email {
+    font-size: 1rem;
+    color: #555;
 }

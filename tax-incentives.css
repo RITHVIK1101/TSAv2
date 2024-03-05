@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+    .navbar{
+        position:fixed;
+        top: 0;
+        height: 50px; 
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        font-family: "Poppins", sans-serif;
+    }
+
+      main {
+        padding-top: 4rem;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      section {
+        width: 30%;
+        margin: 10px;
+        border: 2px solid #4caf50;
+        padding: 20px;
+        
+      }
+
+
+      .head h1 {
+        font-size: 3.5vw;
+        color: #304530;
+        position: relative;
+        background-color:#9fbb9f;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        border-top: 1.5px solid rgb(22, 55, 29);
+        border-bottom: 1.5px solid rgb(22, 55, 29);
+    }
+    
+    @keyframes expandBar {
+        0% {
+            left: 4%;
+            width: 0%;
+        }
+        100% {
+            width: 92%;
+        }
+    }
+      
+      .box
+      h3, .box h2{
+
+        color: #4caf50;
+        text-align: center;
+        font-family:Poppins;
+      }
+
+      .box p {
+        line-height: 1.6;
+      }
+
+      .box ul {
+        list-style-type: square;
+        margin-left: 2.5%;
+      }
+
+      .box img {
+        width: 100%;
+        height: auto;
+        max-width: 28vw;
+        display: block;
+        margin: 0 auto;
+      }
+
+      footer {
+        margin-top: 2.5%;
+        text-align: center;
+      }
+
+      .head {
+        margin-top: 9rem; /* Adjust this value to move the text further down */
+        text-align: center;
+        background-image: linear-gradient(to right, #02371bc3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%); /* Brown to Orange to Green gradient */
+        -webkit-background-clip: text; /* Apply background to the text */
+        color: transparent;
+        font-size: 1.6rem; 
+    }
+
+    .box{
+        transition: transform 0.75s ease, box-shadow 0.75s ease;
+    }
+
+    .box:hover{
+        transform: scale(1.025);
+        box-shadow: 0px 8px 10px #0f0f0f90;
+    }
+
+    .progress-container {
+        width: 100%;
+        height: 6px;
+        background-color: #f3f3f3;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      
+      .progress-bar {
+        height: 100%;
+        background-color: #4caf50;
+        width: 0;
+      }

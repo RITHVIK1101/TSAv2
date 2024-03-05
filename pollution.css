@@ -25,13 +25,13 @@
 }
 
 .pollution-image img {
-    max-width: 32em;
-    height: 28em;
+    max-width: 40vw;
+    height: 32vw;
     display: block;
     border-radius: 10px;
     transition: transform 0.5s ease;
     box-shadow: 2.5px 5px 12px #0f0f0f90;
-    margin-right: 4em;
+    margin-right: 4vw;
     filter: brightness(90%); /* Adjust brightness percentage as needed (80% used here) */
     opacity: 90%;
 }
@@ -51,14 +51,14 @@
 
 .pollution-text h2 {
     color: rgba(249, 246, 246, 0.982);
-    font-size: 4em;
-    margin-bottom: 10px; /* Reduce the bottom margin */
+    font-size: 4vw;
+    margin-bottom: 2.5%;
 }
 
 .pollution-text p {
-    font-size: 1.25em;
+    font-size: 1.25vw;
     line-height: 1.6;
-    margin-bottom: 15px; /* Adjust margin as needed */
+    margin-bottom: 3%; /* Adjust margin as needed */
     color: white;
     filter: brightness(180%); /* Adjust brightness percentage as needed (80% used here) */
 }

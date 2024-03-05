@@ -9,7 +9,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 80vw;
     margin: 0 auto;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .about-us-image img {
-    max-width: 580px;
+    max-width: 40vw;
     height: auto;
     display: block;
     border-radius: 10px;
@@ -47,11 +47,11 @@
 }
 @keyframes flyInRight {
     0% {
-        transform: translateX(100%); /* Start position: outside the viewport on the right */
+        transform: translateX(100%);
         opacity: 0;
     }
     100% {
-        transform: translateX(0); /* End position: translated to its original position */
+        transform: translateX(0);
         opacity: 1;
     }
 }
@@ -64,19 +64,19 @@
 
 .about-us-text {
     flex: 1;
-    color: #666666; /* Grey text color */
+    color: #666666;
 }
 
 .about-us-text h2 {
     font-size: 3.1em;
-    margin-bottom: 5px; /* Adjust margin as needed */
-    background-image: linear-gradient(to right, #026932c3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%); /* Brown to Orange to Green gradient */
-    -webkit-background-clip: text; /* Apply background to the text */
+    margin-bottom: 5px;
+    background-image: linear-gradient(to right, #026932c3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%);
+    -webkit-background-clip: text;
     color: transparent;
 }
 
 .about-us-text p {
-    font-size: 1.25em;
+    font-size: 1.25vw;
     line-height: 1.6;
-    margin-bottom: 15px; /* Adjust margin as needed */
+    margin-bottom: 1%;
 }

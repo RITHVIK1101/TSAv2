@@ -107,6 +107,22 @@
         .arrow-container:hover {
             opacity: 0.5;
         }
+
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background-color: #f3f3f3;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+          }
+          
+          .progress-bar {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0;
+          }
     </style>
 </head>
 
@@ -199,6 +215,12 @@
             significant difference while staying within budget. Let's embrace the DIY spirit and work towards a greener,
             more sustainable future for generations to come.</p>
     </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+      </div>
+      <script src ="progress-bar.js"></script>
+
     <footer class="footer">
         <div class="footer-container">
           <div class="footer-column">

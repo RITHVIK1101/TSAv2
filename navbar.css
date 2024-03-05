@@ -15,8 +15,8 @@
 }
 
 .logo img {
-  height: 5em;
-  width: 7em;
+  height: auto;
+  width: 6em;
   margin-left: 2em;
 }
 
@@ -32,12 +32,11 @@
 .menu-item a {
   text-decoration: none;
   color: #f6f8f7;
-  padding: 18px;
+  padding: 1.25vw;
   position: relative;
-  font-size: 18px;
-  font-weight: 900;
-  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.25vw;
   font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
   text-emphasis: bold;
   text-shadow: 0 20px 10px rgba(0, 0, 0, 0.1); /* Add general shadow effect */
 }

@@ -1,19 +1,10 @@
 /* Footer CSS*/ 
 .footer {
-    background-color: #032305; /* Dark green background for footer */
-    padding: 7.5px 0;
+    font-family: poppins;
+    background-color: #032305;
+    padding: 1.5% 0%;
     color: #ffffff;
-    position: relative; /* Make the footer position relative */
-  }
-  
-  .footer::before { /*bar over footer */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3.5px;
-    background-color: #aaaaaa; 
+    position: relative;
   }
   
   .footer-container {
@@ -52,7 +43,7 @@
   .footer-bottom {
     text-align: center;
     padding-top: 10px;
-    transition: border-top 0.3s ease; /* Transition effect */
+    transition: border-top 0.3s ease;
   }
   
   .footer-bottom p {
@@ -72,13 +63,13 @@
     }
     
     .social-icons img {
-      width: 50px;
+      width: 2vw;
       height: auto;
+      transition: opacity 0.3s ease;
+      transition: transform 0.3s ease;
     }
     
     .social-icons img:hover {
-      width: 55px;
+      transform: scale(1.25);
       opacity: 70%;
-      transition: opacity 0.3s ease;
-      transition: width 0.3s ease;
     }
