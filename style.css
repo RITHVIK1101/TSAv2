@@ -37,10 +37,10 @@ body, html {
 }
 
 .text-overlay h1 {
-  font-size: 8em;
+  font-size: 9vw;
   font-family: 'Outfit', sans-serif;
-  margin-top:1.9em;
-  margin-bottom: 2em;
+  margin-top:1.9vw;
+  margin-bottom: 2vw;
 }
 
 .intro-section{
