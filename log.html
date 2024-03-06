@@ -42,7 +42,7 @@
       </nav>
     <div class="wrapper">
         <div class="form-wrapper sign-in">
-            <form action="">
+            <form id="loginForm">
                 <h2>Login</h2>
                 <div class="input-group">
                     <input type="text" required>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="form-wrapper sign-up">
-            <form action="">
+            <form id="signupForm">
                 <h2>Sign Up</h2>
                 <div class="input-group">
                     <input type="text" required id="fullName">
@@ -126,6 +126,7 @@
 
         const signInForm = document.querySelector('.form-wrapper.sign-in form');
         const signUpForm = document.querySelector('.form-wrapper.sign-up form');
+        const loginForm = document.getElementById('loginForm');
 
         signUpForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -155,10 +156,10 @@
             }
         });
 
-        signInForm.addEventListener('submit', async (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = signInForm.querySelector('input[type="text"]').value; // Assuming email is used for login
-            const password = signInForm.querySelector('input[type="password"]').value;
+            const email = loginForm.querySelector('input[type="text"]').value; // Assuming email is used for login
+            const password = loginForm.querySelector('input[type="password"]').value;
 
             try {
                 // Add a small delay before attempting login
@@ -180,6 +181,9 @@
 
                     // Clear login form after successful login
                     clearLoginForm();
+                    
+                    // Redirect to the homepage (index.html)
+                    window.location.href = "index.html";
                 } else {
                     console.log("Email not verified");
                     alert("Please verify your email before logging in.");
@@ -192,7 +196,7 @@
 
         // Function to clear login form
         function clearLoginForm() {
-            signInForm.reset();
+            loginForm.reset();
         }
 
         // Function to clear signup form
@@ -200,37 +204,36 @@
             signUpForm.reset();
         }
         const functions = require('firebase-functions');
-const admin = require('firebase-admin');
+        const admin = require('firebase-admin');
 
-admin.initializeApp();
+        admin.initializeApp();
 
-exports.modifyVerificationEmail = functions.auth.user().onCreate(async (user) => {
-    const email = user.email;
-    const displayName = user.displayName;
-    
-    // Customize the subject and content of the verification email
-    const modifiedEmailContent = `
-        Hello ${displayName || ''},
-        
-        Follow this link to verify your email address.
-        
-        https://your-custom-domain.com/__/auth/action?mode=verifyEmail&oobCode=${user.emailVerificationToken}
-        
-        If you didn’t ask to verify this address, you can ignore this email.
-        
-        Thanks,
-        Your team
-    `;
+        exports.modifyVerificationEmail = functions.auth.user().onCreate(async (user) => {
+            const email = user.email;
+            const displayName = user.displayName;
+            
+            // Customize the subject and content of the verification email
+            const modifiedEmailContent = `
+                Hello ${displayName || ''},
+                
+                Follow this link to verify your email address.
+                
+                https://your-custom-domain.com/__/auth/action?mode=verifyEmail&oobCode=${user.emailVerificationToken}
+                
+                If you didn’t ask to verify this address, you can ignore this email.
+                
+                Thanks,
+                Your team
+            `;
 
-    // Send the modified verification email
-    await admin.auth().sendPasswordResetEmail(email, {
-        emailTemplate: {
-            subject: 'EarthWise - Verify your Email address', // Change the subject here
-            html: modifiedEmailContent
-        }
-    });
-});
-
+            // Send the modified verification email
+            await admin.auth().sendPasswordResetEmail(email, {
+                emailTemplate: {
+                    subject: 'EarthWise - Verify your Email address', // Change the subject here
+                    html: modifiedEmailContent
+                }
+            });
+        });
     </script>
     <footer class="footer">
         <div class="footer-container">
