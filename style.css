@@ -37,7 +37,7 @@ body, html {
 }
 
 .text-overlay h1 {
-  font-size: 8rem;
+  font-size: 7rem;
   font-family: 'Outfit', sans-serif;
   margin-top:19%;
   margin-bottom: 15%;
@@ -65,7 +65,7 @@ body, html {
 }
 .arrowd {
   position: absolute;
-  top: calc(50% + 12rem); /* Adjust as needed to position below the overlay text */
+  top: calc(50% + 9.2rem); /* Adjust as needed to position below the overlay text */
   left: 50%;
   transform: translateX(-50%) scale(0.7); 
   font-size: 6em;
