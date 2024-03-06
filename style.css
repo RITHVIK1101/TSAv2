@@ -40,7 +40,7 @@ body, html {
   font-size: 8rem;
   font-family: 'Outfit', sans-serif;
   margin-top:19%;
-  margin-bottom: 2vw;
+  margin-bottom: 15%;
 }
 
 .intro-section{
@@ -62,4 +62,11 @@ body, html {
   height: 100%;
   background-color: #4caf50;
   width: 0;
+}
+.arrowd {
+  position: absolute;
+  top: calc(50% + 12rem); /* Adjust as needed to position below the overlay text */
+  left: 50%;
+  transform: translateX(-50%) scale(0.7); 
+  font-size: 6em;
 }
