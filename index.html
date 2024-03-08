@@ -59,12 +59,9 @@
     </video>
 
     <div class="text-overlay">
-      <h1>Green <br>energy<br> made <br>easy.</h1>
+      <h1>Green <br>energy<br> made <br>easy.<br> ⌄</h1>
     </div>
-   </section> 
-   <div class="arrowd">
-   <p>&#8595;</p>
-  </div>
+   </section>
   <section class="about-us-section">
     <div class="about-us-content">
         <div class="about-us-image animate">
@@ -146,48 +143,58 @@
 
   
   
-  <section class = "calc-hero">
-  <h1 class = "carbon-footprint-header">Calculate Your Carbon Footprint!</h1>
-  <div class="calc-container">
-    <div class="calc-column">
-      <div class="carbon-footprint-explainer">
-        <p>A carbon footprint is a measure of the total amount of greenhouse gases, specifically carbon dioxide (CO2) and its equivalents, emitted directly or indirectly by an individual, organization, event, or product. These emissions contribute to climate change by trapping heat in the Earth's atmosphere, leading to global warming. Carbon footprints are typically measured in units of CO2 equivalents, often expressed in kilograms or metric tons.<br>This carbon footprint calculator estimates your yearly carbon footprint based on various activities such as transportation, electricity usage, and meat consumption. Select the options that best match your lifestyle to get an estimate of your carbon footprint.</p>
+  <section class="calc-hero">
+    <h1 class="carbon-footprint-header">Calculate Your Carbon Footprint!</h1>
+    <div class="calc-container">
+      <div class="calc-column">
+        <div class="carbon-footprint-explainer">
+          <p>A carbon footprint is a measure of the total amount of greenhouse gases, specifically carbon dioxide (CO2) and its equivalents, emitted directly or indirectly by an individual, organization, event, or product. These emissions contribute to climate change by trapping heat in the Earth's atmosphere, leading to global warming. Carbon footprints are typically measured in units of CO2 equivalents, often expressed in kilograms or metric tons.<br>This carbon footprint calculator estimates your yearly carbon footprint based on various activities such as transportation, electricity usage, heat usage, and meat consumption. Select the options that best match your lifestyle to get an estimate of your carbon footprint.</p>
+        </div>
+        <div class="calculator">
+          <div class="form-group">
+            <label for="transportation">Transportation:</label>
+            <select id="transportation">
+              <option value="walk">Walking</option>
+              <option value="car">Personal Automobiles</option>
+              <option value="bus">Buses</option>
+              <option value="train">Trains</option>
+              <option value="bike">Biking</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="electricity">Electricity Usage:</label>
+            <select id="electricity">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="heatUsage">Heat Usage:</label>
+            <select id="heatUsage">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="meatConsumption">Meat Consumption:</label>
+            <select id="meatConsumption">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button onclick="calculateCarbonFootprint()">Calculate</button>
+          <div id="result" style="margin-top: 15px;"></div>
+        </div>
       </div>
-      <div class="calculator">
-        <div class="form-group">
-          <label for="transportation">Transportation:</label>
-          <select id="transportation">
-            <option value="walk">Walking</option>
-            <option value="car">Personal Automobiles</option>
-            <option value="train">Public Transportation</option>
-            <option value="bike">Biking</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="electricity">Electricity Usage:</label>
-          <select id="electricity">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="meatConsumption">Meat Consumption: </label>
-          <select id="meatConsumption">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-        <button onclick="calculateCarbonFootprint()">Calculate</button>
-        <div id="result" style="margin-top: 15px;"></div>
+      <div class="image-column">
+        <img src="imgs/carbon-footprint.png" alt="Your Image" class="rounded-image">
       </div>
     </div>
-    <div class="image-column">
-      <img src="imgs/carbon-footprint.png" alt="Your Image" class="rounded-image">
-    </div>
-  </div>
   </section>
+  
   <section class="energy-sources">
     <div class="source-item active">
     
