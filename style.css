@@ -37,7 +37,7 @@ body, html {
 }
 
 .text-overlay h1 {
-  font-size: 7rem;
+  font-size: 8rem;
   font-family: 'Outfit', sans-serif;
   margin-top:19%;
   margin-bottom: 15%;
@@ -47,6 +47,33 @@ body, html {
   position: relative;
   height: 100vh;
 }
+#typing-effect {
+  border-right: 2px solid black; /* Cursor style */
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
+}
+
+/* Typing keyframe */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Cursor blink keyframe */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(9, 237, 100) }
+}
+.gradient-period {
+  background: linear-gradient(to bottom, #a0ff70 0%, #00ff7f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+
 
 .progress-container {
   width: 100%;
