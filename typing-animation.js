@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (i < line1Text.length) {
         line1Element.innerHTML += line1Text.charAt(i);
         i++;
-        setTimeout(typeWriter1, 70); // Adjust typing speed
+        setTimeout(typeWriter1, 10); // Adjust typing speed
       } else {
-        setTimeout(typeWriter2, 3450); // Small delay before starting line 2
+        setTimeout(typeWriter2, 2450); // Small delay before starting line 2
       }
     }
   
