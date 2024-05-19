@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="intro.css">
+  <link rel="stylesheet" href="home-pg/style.css">
+  <link rel="stylesheet" href="home-pg/intro.css">
   <link rel="stylesheet" href="source-scroll.css">
   <link rel="stylesheet" href="footer.css">
-  <link rel="stylesheet" href="calculate.css">
+  <link rel="stylesheet" href="home-pg/calculate.css">
   <link rel="stylesheet" href="navbar.css">
-  <link rel="stylesheet" href="another-section.css">
-  <link rel="stylesheet" href="pollution.css">
+  <link rel="stylesheet" href="home-pg/another-section.css">
+  <link rel="stylesheet" href="home-pg/pollution.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,15 +30,15 @@
         <li class="menu-item"><a href="about-us.html">ABOUT US</a></li>
         <li class="menu-item dropdown">
           <a href="#">SOLUTIONS</a>
-          <div class="dropdown-content solution-dropdown">
-            <a href="wind.html">Wind Energy</a>
-            <a href="solar.html">Solar Energy</a>
-            <a href="biomass.html">Biomass Energy</a>
-            <a href="heat-pump.html">Heat Pumps</a>
+          <div class="dropdown-content solution-dropdown"> <!-- Added a specific class for the dropdown under Solutions -->
+            <a href="solution-pg/wind.html">Wind Energy</a>
+            <a href="solution-pg/solar.html">Solar Energy</a>
+            <a href="solution-pg/biomass.html">Biomass Energy</a>
+            <a href="solution-pg/heat-pump.html">Heat Pumps</a>
           </div>
         </li>
         <li class="menu-item"><a href="tax-incentives.html">TAX INCENTIVES</a></li>
-        <li class="menu-item"><a href="press.html">PRESS</a></li>
+        <li class="menu-item"><a href="press-pg/press.html">PRESS</a></li>
         <li class="menu-item"><a href="log.html">ACCOUNT</a></li>
         <li class="menu-item dropdown">
           <a href="#">TSA</a>
@@ -216,7 +216,7 @@
             <span class="card__description">WIND ENERGY</span>
             <p>Wind turbines, the iconic structures often seen dotting landscapes, are the primary means of capturing wind energy. These turbines consist of large blades mounted on a rotor connected to a generator. As the wind blows, it causes the rotor to spin, generating electricity through the generator.<br> It involves converting the kinetic energy of wind into mechanical or electrical power, providing a clean and sustainable alternative to fossil fuels.
             </p>
-            <a href="wind.html" class="card__button">Read More</a>
+            <a href="solution-pg/wind.html" class="card__button">Read More</a>
          </div>
          
         </div>
@@ -238,7 +238,7 @@
             <span class="card__description">SOLAR ENERGY</span>
             <p>Solar energy, derived from the radiant light and heat emitted by the sun, represents a cornerstone of renewable energy technology. Utilizing photovoltaic (PV) panels or concentrated solar power (CSP) systems, solar energy is converted into electricity or thermal energy with remarkable efficiency.<br> Solar power holds immense potential to meet the world's growing energy demands while mitigating environmental impacts. From rooftop solar installations to vast solar farms, the widespread adoption of solar energy contributes to reducing greenhouse gas emissions and promoting sustainable development worldwide.
             </p>
-            <a href="solar.html" class="card__button">Read More</a>
+            <a href="solution-pg/solar.html" class="card__button">Read More</a>
          </div>
          
         </div>
@@ -260,7 +260,7 @@
             <span class="card__description">BIOMASS ENERGY</span>
             <p>Biomass energy, derived from organic materials such as wood, crop residues, and organic waste, offers a renewable and sustainable source of power. Through processes like combustion, gasification, or anaerobic digestion, biomass is converted into heat, electricity, or biofuels, providing a versatile solution to energy needs.<br> With its ability to utilize organic matter that would otherwise go to waste, biomass energy contributes to waste reduction and promotes environmental sustainability. From small-scale biomass stoves to large-scale biopower plants, biomass energy plays a vital role in diversifying the energy mix and reducing reliance on fossil fuels.
             </p>
-            <a href="biomass.html" class="card__button">Read More</a>
+            <a href="solution-pg/biomass.html" class="card__button">Read More</a>
          </div>
          
         </div>
@@ -283,7 +283,7 @@
             <span class="card__description">HEAT-PUMPS</span>
             <p>Heat pumps are versatile heating and cooling systems that leverage the principles of thermodynamics to transfer heat from one space to another. By extracting heat from the air, ground, or water sources, heat pumps can provide efficient heating during cold weather and cooling during hot weather.This technology offers a sustainable alternative to traditional heating and cooling methods, as it requires less energy and produces fewer greenhouse gas emissions. From residential homes to commercial buildings, heat pumps offer reliable and cost-effective solutions for maintaining indoor comfort while reducing energy consumption and environmental impact.
             </p>
-            <a href="heat-pump.html" class="card__button">Read More</a>
+            <a href="solution-pg/heat-pump.html" class="card__button">Read More</a>
          </div>
          
         </div>
@@ -375,44 +375,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 </script>
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-column">
-        <h3>Earthwise</h3>
-        <p>Earthwise is an informational website committed to demystifying renewable energy solutions
-          offering detailed insights into their workings, installation processes, and benefits. 
-          Through our platform, users can connect with local businesses specializing in sustainable energy solutions and explore tax incentives to make eco-conscious choices more accessible. 
-        </p>
-        <div class="social-icons">
-          <a href="https://twitter.com"><img src="imgs/x-logo.png" alt="Twitter"></a>
-          <a href="https://facebook.com"><img src="imgs/facebook-logo.webp" alt="Facebook"></a>
-          <a href="https://instagram.com"><img src="imgs/insta-logo.webp" alt="Instagram"></a>
-        </div>
-      </div>
-      <div class="footer-column">
-        <h3>Sections</h3>
-        <p><a href="about-us.html">About Us</a></p>
-        <p><a href="wind.html">Solutions</a></p>
-        <p><a href="tax-incentives.html">Tax Incentives</a></p>
-        <p><a href="press.html">Press</a></p>
-        <p><a href="log.html">Account</a></p>
-      </div>
-      <div class="footer-column">
-        <h3>Links</h3>
-        <p><a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a></p>
-        <p><a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a></p>
-        <p><a href="pdfs/TSA final submission works cited.pdf">Sources</a></p>
-        <p><a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a></p>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Earthwise</h3>
+      <p>Earthwise is an informational website committed to demystifying renewable energy solutions
+        offering detailed insights into their workings, installation processes, and benefits. 
+        Through our platform, users can connect with local businesses specializing in sustainable energy solutions and explore tax incentives to make eco-conscious choices more accessible. 
+      </p>
+      <div class="social-icons">
+        <a href="https://twitter.com"><img src="imgs/x-logo.png" alt="Twitter"></a>
+        <a href="https://facebook.com"><img src="imgs/facebook-logo.webp" alt="Facebook"></a>
+        <a href="https://instagram.com"><img src="imgs/insta-logo.webp" alt="Instagram"></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Earthwise All rights reserved.</p>
+    <div class="footer-column">
+      <h3>Sections</h3>
+      <p><a href="about-us.html">About Us</a></p>
+      <p><a href="solution-pg/wind.html">Solutions</a></p>
+      <p><a href="tax-incentives.html">Tax Incentives</a></p>
+      <p><a href="press-pg/press.html">Press</a></p>
+      <p><a href="log.html">Account</a></p>
     </div>
-  </footer>
+    <div class="footer-column">
+      <h3>Links</h3>
+      <p><a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a></p>
+      <p><a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a></p>
+      <p><a href="pdfs/TSA final submission works cited.pdf">Sources</a></p>
+      <p><a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Earthwise All rights reserved.</p>
+  </div>
+</footer>
 
   <script src ="script.js"></script>
-  <script src ="calculatefootprint.js"></script>
-  <script src ="intro-animation.js"></script>
+  <script src ="home-pg/calculatefootprint.js"></script>
 
 </body>
 </html>

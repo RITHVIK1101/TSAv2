@@ -1,5 +1,5 @@
 .pollution-section {
-    background-image: url('imgs/pollution.jpg');
+    background-image: url('../imgs/pollution.jpg');
     background-size: cover; /* Adjust background size as needed */
     background-position: center; /* Center the background image */
     height: 100vh;
