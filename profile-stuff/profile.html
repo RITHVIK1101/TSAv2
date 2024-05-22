@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            width: 35%;
+            background: rgba(229, 225, 225, 0.592);
+            padding: 10px 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            height: 2.8em;
+            margin-left: 28em;
+            z-index: 1000;
+            border-radius: 1em;
+            margin-top: 0.8em;
+        }
+        .navbar h2 {
+            color: rgba(35, 33, 33, 0.815);
+            margin-left: 5.8em;
+            font-size: 2em;
+        }
+        .navbar .profile-icon {
+            font-size: 24px;
+            color: rgb(21, 112, 216);
+            cursor: pointer;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(to right, #026932c3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%);
+            padding: 70px 20px 20px 20px; /* Added padding to account for navbar */
+            box-sizing: border-box;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            gap: 0.7em;
+        }
+        .box h3 {
+            text-align: center;
+            margin: 0;
+            padding: 10px 0;
+            flex: 0 0 auto;
+            font-size: 1.6em;
+            font-family: "Josefin Sans", sans-serif;
+        }
+        .box {
+            background: #fff;
+            border: 1px solid #150505;
+            border-radius: 1em;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .left-column {
+            flex: 0.5 0.5 45%;
+            display: flex;
+            margin-top: 1em;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .right-column {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 1em;
+            gap: 1em;
+            box-sizing: border-box;
+        }
+        .right-column .box {
+            height: 13em; /* Adjusted height for right column boxes */
+        }
+        .left-column .rec{
+            height: 27em;
+        }
+        .full-width {
+            flex: 1 1 100%;
+            height: 18em; /* Adjusted height for full-width box */
+            box-sizing: border-box;
+        }
+      
+
+        .conversion-box {
+            margin-top: 20px;
+        }
+        #productsContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        #productsBox {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+        scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+#productsBox::-webkit-scrollbar { /* WebKit browsers */
+    width: 0;
+    height: 0;
+}
+
+        .product-item {
+            display: inline-block;
+            width: 16em;
+            margin-right: 1em;
+            border: 1px solid #ddd;
+            border-radius: 0.5em;
+            height:12em;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 0em;
+        }
+        .product-item img {
+            width: 100%;
+            height: 10em;
+            object-fit: cover;
+        }
+        .product-item p {
+            margin: 0.5em 0;
+        }
+        @media(max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .left-column, .right-column {
+                flex: 1 1 100%;
+            }
+            .right-column {
+                flex-direction: column;
+            }
+            .right-column .box, .full-width {
+                height: auto; /* Ensure proper height adjustment on smaller screens */
+            }
+            .product-item {
+                width: 48%;
+            }
+        }
+        /* Modal */
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;  /* Adjusted width */
+    border-radius: 10px;
+    max-width: 600px;  /* Ensures the modal doesn't get too wide */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>Hi, <span id="username"></span>!</h2>
+        <i id="settingsButton" class="fas fa-user profile-icon"></i>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <div class="left-column">
+                <div id="recommendationBox" class="box rec">
+                    <h3>Energy Recommendation</h3>
+                    <h4  id="recommendationText">Loading...</h4>
+                    <p id="explanationText">Loading...</p>
+                    <div id="conversionBox" class="box conversion-box">
+                        <h4>Conversion Scale</h4>
+                        <ul>
+                            <li>1 unit = 1 kWh</li>
+                            <li>1 kWh = 3.6 MJ</li>
+                            <li>1 kWh = 860 kcal</li>
+                            <li>1 kWh = 0.0341 therms</li>
+                            <li>1 kWh = 0.00134 MWh</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div id="taxIncentivesBox" class="box">
+                    <h3>Tax Incentives</h3>
+                    <p>Details about tax incentives</p>
+                    <div class="info-button" title="Learn more about tax incentives">i</div>
+                </div>
+                <div id="costBox" class="box">
+                    <h3>Cost</h3>
+                    <p>Information on costs</p>
+                    <div class="info-button" title="Learn more about costs">i</div>
+                </div>
+            </div>
+            <div id="productsContainer" class="box full-width">
+                <h3 class="products-heading">Products</h3>
+                <div id="productsBox">
+                    <div id="productsList">Details on related products will appear here...</div>
+                </div>
+                <div class="info-button" title="Learn more about products">i</div>
+            </div>
+            <div id="productModal" class="modal">
+                <div class="modal-content" id="productModalContent">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAysHF-FjVDptC3VadfbkT-s8ltHU9wn7k",
+            authDomain: "amazing-smile-416123.firebaseapp.com",
+            projectId: "amazing-smile-416123",
+            storageBucket: "amazing-smile-416123.appspot.com",
+            messagingSenderId: "18059462355",
+            appId: "1:18059462355:web:41916e5c504ce105f83626",
+            measurementId: "G-3T7PXWTKCL"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getFirestore();
+
+        const products = {
+            "Solar Energy": [
+        { name: "Solar Panels", image: "../imgs/Screenshot 2024-05-22 at 5.45.04 AM.png", link: "solar_panels.html", description: "High-efficiency solar panels.", cost: "$2000" },
+        { name: "Solar Water Heaters", image: "../imgs/Designer (1).png", link: "solar_water_heaters.html", description: "Cost-effective solar water heaters.", cost: "$800" },
+        { name: "Solar Lights", image: "../imgs/Screenshot 2024-05-22 at 5.48.15 AM.png", link: "solar_lights.html", description: "Durable and efficient solar lights.", cost: "$150" },
+        { name: "Solar Chargers", image: "../imgs/charger.jpg", link: "solar_chargers.html", description: "Portable solar chargers.", cost: "$50" },
+        { name: "Solar Backpacks", image: "../imgs/back.jpg", link: "solar_backpacks.html", description: "Backpacks with integrated solar panels.", cost: "$120" },
+        { name: "Solar Inverters", image: "../imgs/invertor.jpg", link: "solar_inverters.html", description: "Efficient solar inverters.", cost: "$300" },
+        { name: "Solar Generators", image: "../imgs/generator.jpg", link: "solar_generators.html", description: "Powerful solar generators.", cost: "$1500" },
+        { name: "Solar Power Banks", image: "../imgs/powerbank.jpg", link: "solar_power_banks.html", description: "Portable solar power banks.", cost: "$80" },
+        { name: "Solar Roof Tiles", image: "../imgs/rooftile.jpg", link: "solar_roof_tiles.html", description: "Innovative solar roof tiles.", cost: "$2500" },
+        { name: "Solar Air Conditioners", image: "../imgs/airc.jpg", link: "solar_air_conditioners.html", description: "Energy-efficient solar air conditioners.", cost: "$1800" }
+    ],
+    "Wind Energy": [
+        { name: "Wind Turbines", image: "wind_turbines.jpg", description: "Efficient wind turbines for harnessing wind energy." },
+        { name: "Wind-Powered Generators", image: "wind_powered_generators.jpg", description: "Reliable wind-powered generators for backup power." },
+        { name: "Wind Energy Kits", image: "wind_energy_kits.jpg", description: "Complete wind energy kits for DIY installation." },
+        { name: "Vertical Axis Wind Turbines", image: "vertical_axis_wind_turbines.jpg", description: "Vertical axis wind turbines for urban and rural use." },
+        { name: "Wind-Solar Hybrid Systems", image: "wind_solar_hybrid_systems.jpg", description: "Hybrid systems combining wind and solar power." },
+        { name: "Wind Measuring Instruments", image: "wind_measuring_instruments.jpg", description: "Instruments for measuring wind speed and direction." },
+        { name: "Small Wind Turbines", image: "small_wind_turbines.jpg", description: "Compact wind turbines for home use." },
+        { name: "Offshore Wind Turbines", image: "offshore_wind_turbines.jpg", description: "Offshore wind turbines for large-scale energy production." },
+        { name: "Wind Controllers", image: "wind_controllers.jpg", description: "Controllers for managing wind energy systems." },
+        { name: "Wind Power Storage Batteries", image: "wind_power_storage_batteries.jpg", description: "Batteries for storing wind-generated power." }
+    ],
+    "Hydropower": [
+        { name: "Micro Hydropower Systems", image: "micro_hydropower_systems.jpg", description: "Small-scale hydropower systems for home use." },
+        { name: "Hydroelectric Generators", image: "hydroelectric_generators.jpg", description: "Generators for producing electricity from water flow." },
+        { name: "Hydropower Turbines", image: "hydropower_turbines.jpg", description: "Turbines for converting water flow to electricity." },
+        { name: "Water Wheels", image: "water_wheels.jpg", description: "Traditional water wheels for generating power." },
+        { name: "Pico Hydropower Systems", image: "pico_hydropower_systems.jpg", description: "Very small hydropower systems for remote areas." },
+        { name: "Hydropower Pumps", image: "hydropower_pumps.jpg", description: "Pumps powered by hydropower for various uses." },
+        { name: "Small Hydropower Plants", image: "small_hydropower_plants.jpg", description: "Compact hydropower plants for local energy production." },
+        { name: "Hydropower Storage Systems", image: "hydropower_storage_systems.jpg", description: "Systems for storing energy generated by hydropower." },
+        { name: "Hydropower Control Systems", image: "hydropower_control_systems.jpg", description: "Control systems for managing hydropower generation." },
+        { name: "Hydropower Inverters", image: "hydropower_inverters.jpg", description: "Inverters for converting hydropower-generated electricity." }
+    ]
+        };
+        
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) {
+                window.location.href = "log.html"; // Redirect to login if not authenticated
+            } else {
+                const userRef = doc(db, 'users', user.uid);
+                const userDoc = await getDoc(userRef);
+
+                if (userDoc.exists()) {
+                    const userData = userDoc.data();
+                    document.getElementById('username').textContent = userData.username || 'User';
+
+                    const consumptionRef = doc(db, 'users', user.uid, 'consumption', 'data');
+                    const consumptionDoc = await getDoc(consumptionRef);
+
+                    if (consumptionDoc.exists()) {
+                        const consumptionData = consumptionDoc.data();
+                        const [recommendation, explanation] = getRecommendation(consumptionData);
+                        document.getElementById('recommendationText').textContent = recommendation;
+                        document.getElementById('explanationText').textContent = explanation;
+
+                        // Display products based on the recommendation
+                        displayProducts(recommendation);
+
+                        document.getElementById('settingsButton').addEventListener('click', async () => {
+                            try {
+                                const queryParams = new URLSearchParams(consumptionData).toString();
+                                window.location.href = `consumption.html?${queryParams}`;
+                            } catch (error) {
+                                console.error("Error fetching consumption data:", error);
+                            }
+                        });
+                    } else {
+                        document.getElementById('recommendationText').textContent = "No consumption data found.";
+                        document.getElementById('explanationText').textContent = "";
+                        document.getElementById('productsList').textContent = "No products available for this recommendation.";
+
+                        document.getElementById('settingsButton').addEventListener('click', () => {
+                            window.location.href = 'consumption.html';
+                        });
+                    }
+                }
+            }
+        });
+
+        function getRecommendation(consumptionData) {
+            const tvHours = consumptionData.tvHours || 0;
+            const phoneHours = consumptionData.phoneHours || 0;
+            const fridge = consumptionData.fridge || false;
+            const washer = consumptionData.washer || 0;
+            const dryer = consumptionData.dryer || 0;
+            const kitchenHours = consumptionData.kitchenHours || 0;
+            const carType = consumptionData.carType || 'Gas';
+            const carMiles = consumptionData.carMiles || 0;
+            const country = consumptionData.country || 'US';
+            const state = consumptionData.state || '';
+
+            const totalConsumption = tvHours + phoneHours + washer + dryer + kitchenHours + (carMiles * (carType === 'EV' ? 2 : 1));
+
+            let recommendation = "";
+            let explanation = "";
+
+            if (totalConsumption > 20) {
+                recommendation = "Solar Energy";
+                explanation = `Given your high total energy consumption (${totalConsumption} units) and your use of an electric vehicle, solar energy is recommended to maximize efficiency and sustainability, especially in a region like ${state}, ${country}.`;
+            } else if (totalConsumption > 10) {
+                recommendation = "Wind Energy";
+                explanation = `With a moderate total energy consumption (${totalConsumption} units), wind energy is suitable for your needs. This source will effectively complement your usage patterns in ${state}, ${country}.`;
+            } else {
+                recommendation = "Hydropower";
+                explanation = `Your low total energy consumption (${totalConsumption} units) makes hydropower a great fit, offering reliable and consistent energy with minimal environmental impact in ${state}, ${country}.`;
+            }
+
+            return [recommendation, explanation];
+        }
+
+        // Automatic horizontal scroll
+        function displayProducts(recommendation) {
+    const productsList = document.getElementById('productsList');
+    productsList.innerHTML = "";
+    if (products[recommendation]) {
+        products[recommendation].forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+            productItem.onclick = () => {
+                stopScrolling();  // Stop scrolling when a product is clicked
+                showProductDetails(product);
+            };
+            const productImage = document.createElement('img');
+            productImage.src = product.image;
+            productImage.alt = product.name;
+            const productName = document.createElement('p');
+            productName.textContent = product.name;
+            productItem.appendChild(productImage);
+            productItem.appendChild(productName);
+            productsList.appendChild(productItem);
+        });
+    } else {
+        productsList.textContent = "No products available for this recommendation.";
+    }
+}
+
+function showProductDetails(product) {
+    const modal = document.getElementById('productModal');
+    const modalContent = document.getElementById('productModalContent');
+    modalContent.innerHTML = `
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>${product.name}</h3>
+        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: auto;">
+        <p><strong>Cost:</strong> ${product.cost}</p>
+        <p>${product.description}</p>
+        
+    `;
+    modal.style.display = 'block';
+}
+
+
+window.onclick = function(event) {
+    const modal = document.getElementById('productModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('productModal');
+    modal.style.display = "none";
+    startScrolling();  // Restart scrolling when the modal is closed
+}
+        let isScrolling = true;
+const productsBox = document.getElementById('productsBox');
+const startScrolling = () => {
+    isScrolling = true;
+    scrollProducts();
+};
+const stopScrolling = () => {
+    isScrolling = false;
+};
+const scrollProducts = () => {
+    if (isScrolling) {
+        productsBox.scrollLeft += 3;
+        if (productsBox.scrollLeft >= productsBox.scrollWidth - productsBox.clientWidth) {
+            productsBox.scrollLeft = 0;
+        }
+        requestAnimationFrame(scrollProducts);
+    }
+};
+
+productsBox.addEventListener('mouseover', stopScrolling);
+productsBox.addEventListener('mouseout', startScrolling);
+
+// Start the automatic scrolling
+startScrolling();
+
+    </script>
+</body>
+</html>
+

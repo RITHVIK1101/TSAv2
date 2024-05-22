@@ -1,0 +1,6 @@
+tvHours,phoneHours,fridge,washer,recommendation
+2,1,1,0,Solar
+3,2,1,1,Wind
+4,3,0,1,Biomass
+1,1,1,0,Solar
+2,2,0,1,Wind

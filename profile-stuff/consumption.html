@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Consumption Data</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-wrapper consumption">
+            <form id="consumptionForm">
+                <h2>Energy Consumption Data</h2>
+                <div class="input-group">
+                    <label for="country">Country:</label>
+                    <select id="country" required onchange="updateStates(this.value)">
+                        <option value="">Select a Country</option>
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                        <option value="IN">India</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                        <option value="IT">Italy</option>
+                        <option value="JP">Japan</option>
+                        <option value="BR">Brazil</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="state">State/Region:</label>
+                    <select id="state" required>
+                        <!-- States will be loaded here -->
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="tvHours">TV Hours per Day:</label>
+                    <input type="number" id="tvHours" required>
+                </div>
+                <div class="input-group">
+                    <label for="phoneHours">Phone Charging Hours per Day:</label>
+                    <input type="number" id="phoneHours" required>
+                </div>
+                <div class="input-group">
+                    <label for="fridge">Refrigerator (Yes/No):</label>
+                    <input type="checkbox" id="fridge">
+                </div>
+                <div class="input-group">
+                    <label for="washer">Washer Times per Day:</label>
+                    <input type="number" id="washer" required>
+                </div>
+                <div class="input-group">
+                    <label for="dryer">Dryer Times per Day:</label>
+                    <input type="number" id="dryer" required>
+                </div>
+                <div class="input-group">
+                    <label for="kitchenHours">Kitchen Appliances Hours per Day:</label>
+                    <input type="number" id="kitchenHours" required>
+                </div>
+                <div class="input-group">
+                    <label for="carType">Car Type (EV/Gas):</label>
+                    <select id="carType" required>
+                        <option value="EV">EV</option>
+                        <option value="Gas">Gas</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="carMiles">Car Miles per Day:</label>
+                    <input type="number" id="carMiles" required>
+                </div>
+                <button type="submit">Save Data</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyAysHF-FjVDptC3VadfbkT-s8ltHU9wn7k",
+            authDomain: "amazing-smile-416123.firebaseapp.com",
+            projectId: "amazing-smile-416123",
+            storageBucket: "amazing-smile-416123.appspot.com",
+            messagingSenderId: "18059462355",
+            appId: "1:18059462355:web:41916e5c504ce105f83626",
+            measurementId: "G-3T7PXWTKCL"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getFirestore();
+    
+        async function updateStates(countryCode) {
+            const url = `http://api.geonames.org/searchJSON?formatted=true&country=${countryCode}&username=rith&style=full`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (data.geonames && data.geonames.length > 0) {
+                    const stateSelect = document.getElementById('state');
+                    stateSelect.innerHTML = ''; // Clear existing options
+                    data.geonames.forEach(function (geo) {
+                        const option = document.createElement('option');
+                        option.value = geo.adminName1; // Ensure this is the correct property for state names
+                        option.textContent = geo.adminName1;
+                        stateSelect.appendChild(option);
+                    });
+                } else {
+                    console.log('No states found or error in API response', data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch states:", error);
+            }
+        }
+    
+        document.getElementById('country').addEventListener('change', function () {
+            updateStates(this.value);
+        });
+    
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = "../log.html"; // Redirect to login if not authenticated
+            } else {
+                const currentUser = user;
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const consumptionData = Object.fromEntries(urlParams.entries());
+
+                // Populate the form fields with the consumption data
+                populateFormFields(consumptionData);
+
+                function populateFormFields(consumptionData) {
+                    document.getElementById('country').value = consumptionData.country || '';
+                    updateStates(consumptionData.country); // Call updateStates with the country value
+
+                    document.getElementById('state').value = consumptionData.state || '';
+                    document.getElementById('tvHours').value = consumptionData.phoneHours || '';
+                    document.getElementById('phoneHours').value = consumptionData.phoneHours || '';
+                    document.getElementById('fridge').checked = consumptionData.fridge === 'true';
+                    document.getElementById('washer').value = consumptionData.washer || '';
+                    document.getElementById('dryer').value = consumptionData.dryer || '';
+                    document.getElementById('kitchenHours').value = consumptionData.kitchenHours || '';
+                    document.getElementById('carType').value = consumptionData.carType || '';
+                    document.getElementById('carMiles').value = consumptionData.carMiles || '';
+                }
+
+    
+                document.getElementById('consumptionForm').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    if (!currentUser) {
+                        console.error('No user logged in');
+                        alert('Please log in to save data.');
+                        return;
+                    }
+                    const formData = {
+                        country: document.getElementById('country').value,
+                        state: document.getElementById('state').value,
+                        tvHours: document.getElementById('tvHours').value,
+                        phoneHours: document.getElementById('phoneHours').value,
+                        fridge: document.getElementById('fridge').checked,
+                        washer: document.getElementById('washer').value,
+                        dryer: document.getElementById('dryer').value,
+                        kitchenHours: document.getElementById('kitchenHours').value,
+                        carType: document.getElementById('carType').value,
+                        carMiles: document.getElementById('carMiles').value
+                    };
+    
+                    try {
+                        const userConsumptionRef = doc(db, 'users', currentUser.uid, 'consumption', 'data');
+                        await setDoc(userConsumptionRef, formData);
+                        alert("Data saved successfully!");
+                        window.location.href = "profile.html"; // Redirect to profile page after successful save
+                    } catch (error) {
+                        console.error("Error saving consumption data:", error);
+                        alert("Failed to save data. Please try again.");
+                    }
+                });
+            }
+        });
+    </script>
+    
+</body>
+</html>
