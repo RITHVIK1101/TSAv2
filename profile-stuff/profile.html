@@ -16,26 +16,30 @@
             background-color: #f4f4f4;
         }
         .navbar {
-            width: 35%;
-            background: rgba(229, 225, 225, 0.592);
-            padding: 10px 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            height: 2.8em;
-            margin-left: 28em;
-            z-index: 1000;
-            border-radius: 1em;
-            margin-top: 0.8em;
-        }
-        .navbar h2 {
-            color: rgba(35, 33, 33, 0.815);
-            margin-left: 5.8em;
-            font-size: 2em;
-        }
+    width: 47%; /* Adjusted width to provide more space */
+    background: rgba(229, 225, 225, 0.592);
+    padding: 10px 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 2.8em;
+    margin-left: 25%;
+    z-index: 1000;
+    border-radius: 1em;
+    margin-top: 0.8em;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.navbar h2 {
+    color: rgba(35, 33, 33, 0.815);
+    margin-left: 0.1em; /* Adjusted margin */
+    font-size: 2em;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
         .navbar .profile-icon {
             font-size: 24px;
             color: rgb(21, 112, 216);
@@ -50,6 +54,7 @@
             background-image: linear-gradient(to right, #026932c3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%);
             padding: 70px 20px 20px 20px; /* Added padding to account for navbar */
             box-sizing: border-box;
+            position: relative;
         }
         .content {
             display: flex;
@@ -74,7 +79,48 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin: 0;
             box-sizing: border-box;
+            transition: transform 1.2s ease;
         }
+        .info-button {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../imgs/info.jpg'); /* Replace with the correct path to your info icon */
+    background-size: cover;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Info text style */
+.info-button::after {
+    content: attr(data-info);
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    width: 200px; /* Adjust as needed */
+    font-family: 'Arial', sans-serif; /* Change font family */
+    font-size: 14px; /* Change font size */
+}
+
+/* Show info text on hover */
+.info-button:hover::after {
+    display: block;
+}
+
+
+.box:hover {
+    transform: scale(1.03);
+    transition: transform 0.75s ease, box-shadow 0.75s ease;
+    box-shadow: 2em 3em 5em #0f0f0f90;
+}
         .left-column {
             flex: 0.5 0.5 45%;
             display: flex;
@@ -90,6 +136,18 @@
             gap: 1em;
             box-sizing: border-box;
         }
+ 
+
+
+#taxIncentivesBox {
+    flex: 1; /* Make this box take up remaining space */
+}
+
+#costBox {
+    flex: 0 0 10%; /* Make this box 30% of the right column's width */
+}
+
+
         .right-column .box {
             height: 13em; /* Adjusted height for right column boxes */
         }
@@ -100,9 +158,9 @@
             flex: 1 1 100%;
             height: 18em; /* Adjusted height for full-width box */
             box-sizing: border-box;
+            margin-top: 1em;
         }
-      
-
+        
         .conversion-box {
             margin-top: 20px;
         }
@@ -112,25 +170,23 @@
             height: 100%;
         }
         #productsBox {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-        scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-}
-
-#productsBox::-webkit-scrollbar { /* WebKit browsers */
-    width: 0;
-    height: 0;
-}
-
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        #productsBox::-webkit-scrollbar { /* WebKit browsers */
+            width: 0;
+            height: 0;
+        }
         .product-item {
             display: inline-block;
             width: 16em;
             margin-right: 1em;
             border: 1px solid #ddd;
             border-radius: 0.5em;
-            height:12em;
+            height: 12em;
             overflow: hidden;
             cursor: pointer;
             text-align: center;
@@ -162,58 +218,109 @@
             }
         }
         /* Modal */
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 0em;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;  /* Adjusted width */
+            border-radius: 10px;
+            max-width: 600px;  /* Ensures the modal doesn't get too wide */
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-body img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .modal-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #028A0F;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .modal-footer button:hover {
+            background-color: #02690D;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #costTotal {
+            font-size: 1.5em;
+            color: #333;
+            margin-left: 12em;
+        }
+        .readmore {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .readmore button a {
+    color: inherit; /* Inherit the color from the parent button */
+    text-decoration: none; /* Remove underline */
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;  /* Adjusted width */
-    border-radius: 10px;
-    max-width: 600px;  /* Ensures the modal doesn't get too wide */
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
+        .readmore button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #afe8b4;
+    color: #100707;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-
+        .readmore button:hover {
+            background-color: #9fd6a0;
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <h2>Hi, <span id="username"></span>!</h2>
+        <h2> <span id="username"></span>'s Green Energy Dashboard!</h2>
         <i id="settingsButton" class="fas fa-user profile-icon"></i>
     </div>
     <div class="wrapper">
+        <div class="readmore">
+            <button><a href="../index.html">Learn more about Green energy</a></button>
+        </div>
         <div class="content">
             <div class="left-column">
                 <div id="recommendationBox" class="box rec">
-                    <h3>Energy Recommendation</h3>
-                    <h4  id="recommendationText">Loading...</h4>
+                    <h3>Energy Recommendation <span class="info-button" data-info="This is detailed information about the energy recommendation."></span></h3>
+                    <h4 id="recommendationText">Loading...</h4>
                     <p id="explanationText">Loading...</p>
                     <div id="conversionBox" class="box conversion-box">
                         <h4>Conversion Scale</h4>
@@ -227,31 +334,42 @@
                     </div>
                 </div>
             </div>
+            
             <div class="right-column">
                 <div id="taxIncentivesBox" class="box">
-                    <h3>Tax Incentives</h3>
+                    <h3>Tax Incentives <span class="info-button" data-info="These are the incentives your government provides for implementing various green energy solutions."></span></h3>
                     <p>Details about tax incentives</p>
-                    <div class="info-button" title="Learn more about tax incentives">i</div>
                 </div>
                 <div id="costBox" class="box">
-                    <h3>Cost</h3>
-                    <p>Information on costs</p>
-                    <div class="info-button" title="Learn more about costs">i</div>
-                </div>
-            </div>
-            <div id="productsContainer" class="box full-width">
-                <h3 class="products-heading">Products</h3>
-                <div id="productsBox">
-                    <div id="productsList">Details on related products will appear here...</div>
-                </div>
-                <div class="info-button" title="Learn more about products">i</div>
-            </div>
-            <div id="productModal" class="modal">
-                <div class="modal-content" id="productModalContent">
-                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h3>Cost <span class="info-button" data-info="Here is the total cost of the products you bought, deducted with the tax incentives."></span></h3>
+                    <p id="costTotal">$0</p>
                 </div>
             </div>
             
+            <div id="productsContainer" class="box full-width">
+                <h3 class="products-heading">Products <span class="info-button" data-info="Below are the products we offer for your recommended green energy source."></span></h3>
+                <div id="productsBox">
+                    <div id="productsList">Details on related products will appear here...</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- The Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 id="modalProductName"></h2>
+            </div>
+            <div class="modal-body">
+                <img id="modalProductImage" src="" alt="Product Image">
+                <p id="modalProductDescription"></p>
+                <p id="modalProductCost"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="addProductButton">Add to Cart</button>
+            </div>
         </div>
     </div>
     <script type="module">
@@ -275,43 +393,106 @@
 
         const products = {
             "Solar Energy": [
-        { name: "Solar Panels", image: "../imgs/Screenshot 2024-05-22 at 5.45.04 AM.png", link: "solar_panels.html", description: "High-efficiency solar panels.", cost: "$2000" },
-        { name: "Solar Water Heaters", image: "../imgs/Designer (1).png", link: "solar_water_heaters.html", description: "Cost-effective solar water heaters.", cost: "$800" },
-        { name: "Solar Lights", image: "../imgs/Screenshot 2024-05-22 at 5.48.15 AM.png", link: "solar_lights.html", description: "Durable and efficient solar lights.", cost: "$150" },
-        { name: "Solar Chargers", image: "../imgs/charger.jpg", link: "solar_chargers.html", description: "Portable solar chargers.", cost: "$50" },
-        { name: "Solar Backpacks", image: "../imgs/back.jpg", link: "solar_backpacks.html", description: "Backpacks with integrated solar panels.", cost: "$120" },
-        { name: "Solar Inverters", image: "../imgs/invertor.jpg", link: "solar_inverters.html", description: "Efficient solar inverters.", cost: "$300" },
-        { name: "Solar Generators", image: "../imgs/generator.jpg", link: "solar_generators.html", description: "Powerful solar generators.", cost: "$1500" },
-        { name: "Solar Power Banks", image: "../imgs/powerbank.jpg", link: "solar_power_banks.html", description: "Portable solar power banks.", cost: "$80" },
-        { name: "Solar Roof Tiles", image: "../imgs/rooftile.jpg", link: "solar_roof_tiles.html", description: "Innovative solar roof tiles.", cost: "$2500" },
-        { name: "Solar Air Conditioners", image: "../imgs/airc.jpg", link: "solar_air_conditioners.html", description: "Energy-efficient solar air conditioners.", cost: "$1800" }
-    ],
-    "Wind Energy": [
-        { name: "Wind Turbines", image: "wind_turbines.jpg", description: "Efficient wind turbines for harnessing wind energy." },
-        { name: "Wind-Powered Generators", image: "wind_powered_generators.jpg", description: "Reliable wind-powered generators for backup power." },
-        { name: "Wind Energy Kits", image: "wind_energy_kits.jpg", description: "Complete wind energy kits for DIY installation." },
-        { name: "Vertical Axis Wind Turbines", image: "vertical_axis_wind_turbines.jpg", description: "Vertical axis wind turbines for urban and rural use." },
-        { name: "Wind-Solar Hybrid Systems", image: "wind_solar_hybrid_systems.jpg", description: "Hybrid systems combining wind and solar power." },
-        { name: "Wind Measuring Instruments", image: "wind_measuring_instruments.jpg", description: "Instruments for measuring wind speed and direction." },
-        { name: "Small Wind Turbines", image: "small_wind_turbines.jpg", description: "Compact wind turbines for home use." },
-        { name: "Offshore Wind Turbines", image: "offshore_wind_turbines.jpg", description: "Offshore wind turbines for large-scale energy production." },
-        { name: "Wind Controllers", image: "wind_controllers.jpg", description: "Controllers for managing wind energy systems." },
-        { name: "Wind Power Storage Batteries", image: "wind_power_storage_batteries.jpg", description: "Batteries for storing wind-generated power." }
-    ],
-    "Hydropower": [
-        { name: "Micro Hydropower Systems", image: "micro_hydropower_systems.jpg", description: "Small-scale hydropower systems for home use." },
-        { name: "Hydroelectric Generators", image: "hydroelectric_generators.jpg", description: "Generators for producing electricity from water flow." },
-        { name: "Hydropower Turbines", image: "hydropower_turbines.jpg", description: "Turbines for converting water flow to electricity." },
-        { name: "Water Wheels", image: "water_wheels.jpg", description: "Traditional water wheels for generating power." },
-        { name: "Pico Hydropower Systems", image: "pico_hydropower_systems.jpg", description: "Very small hydropower systems for remote areas." },
-        { name: "Hydropower Pumps", image: "hydropower_pumps.jpg", description: "Pumps powered by hydropower for various uses." },
-        { name: "Small Hydropower Plants", image: "small_hydropower_plants.jpg", description: "Compact hydropower plants for local energy production." },
-        { name: "Hydropower Storage Systems", image: "hydropower_storage_systems.jpg", description: "Systems for storing energy generated by hydropower." },
-        { name: "Hydropower Control Systems", image: "hydropower_control_systems.jpg", description: "Control systems for managing hydropower generation." },
-        { name: "Hydropower Inverters", image: "hydropower_inverters.jpg", description: "Inverters for converting hydropower-generated electricity." }
-    ]
-        };
-        
+            { name: "Solar Panels", image: "../imgs/Screenshot 2024-05-22 at 5.45.04 AM.png", link: "solar_panels.html", cost: 5000 },
+            { name: "Solar Water Heaters", image: "../imgs/Designer (1).png", link: "solar_water_heaters.html", cost: 3000 },
+            { name: "Solar Lights", image: "../imgs/Screenshot 2024-05-22 at 5.48.15 AM.png", link: "solar_lights.html", cost: 200 },
+            { name: "Solar Chargers", image: "../imgs/charger.jpg", link: "solar_chargers.html", cost: 100 },
+            { name: "Solar Backpacks", image: "../imgs/back.jpg", link: "solar_backpacks.html", cost: 150 },
+            { name: "Solar Inverters", image: "../imgs/invertor.jpg", link: "solar_inverters.html", cost: 1200 },
+            { name: "Solar Generators", image: "../imgs/generator.jpg", link: "solar_generators.html", cost: 2000 },
+            { name: "Solar Power Banks", image: "../imgs/powerbank.jpg", link: "solar_power_banks.html", cost: 80 },
+            { name: "Solar Roof Tiles", image: "../imgs/rooftile.jpg", link: "solar_roof_tiles.html", cost: 10000 },
+            { name: "Solar Air Conditioners", image: "../imgs/airc.jpg", link: "solar_air_conditioners.html", cost: 4000 }
+        ],
+        "Wind Energy": [
+            { name: "Wind Turbines", image: "wind_turbines.jpg", link: "wind_turbines.html", cost: 15000 },
+            { name: "Wind-Powered Generators", image: "wind_powered_generators.jpg", link: "wind_powered_generators.html", cost: 8000 },
+            { name: "Wind Energy Kits", image: "wind_energy_kits.jpg", link: "wind_energy_kits.html", cost: 600 },
+            { name: "Vertical Axis Wind Turbines", image: "vertical_axis_wind_turbines.jpg", link: "vertical_axis_wind_turbines.html", cost: 9000 },
+            { name: "Wind-Solar Hybrid Systems", image: "wind_solar_hybrid_systems.jpg", link: "wind_solar_hybrid_systems.html", cost: 12000 },
+            { name: "Wind Measuring Instruments", image: "wind_measuring_instruments.jpg", link: "wind_measuring_instruments.html", cost: 500 },
+            { name: "Small Wind Turbines", image: "small_wind_turbines.jpg", link: "small_wind_turbines.html", cost: 5000 },
+            { name: "Offshore Wind Turbines", image: "offshore_wind_turbines.jpg", link: "offshore_wind_turbines.html", cost: 20000 },
+            { name: "Wind Controllers", image: "wind_controllers.jpg", link: "wind_controllers.html", cost: 700 },
+            { name: "Wind Power Storage Batteries", image: "wind_power_storage_batteries.jpg", link: "wind_power_storage_batteries.html", cost: 3000 }
+        ],
+        "Biomass": [
+            { name: "Biomass Boilers", image: "biomass_boilers.jpg", link: "biomass_boilers.html", cost: 7000 },
+            { name: "Biomass Pellets", image: "biomass_pellets.jpg", link: "biomass_pellets.html", cost: 300 },
+            { name: "Biomass Stoves", image: "biomass_stoves.jpg", link: "biomass_stoves.html", cost: 1500 },
+            { name: "Biomass Heating Systems", image: "biomass_heating_systems.jpg", link: "biomass_heating_systems.html", cost: 9000 },
+            { name: "Biomass Generators", image: "biomass_generators.jpg", link: "biomass_generators.html", cost: 8000 },
+            { name: "Biomass Fuel Storage", image: "biomass_fuel_storage.jpg", link: "biomass_fuel_storage.html", cost: 2000 },
+            { name: "Biomass Furnaces", image: "biomass_furnaces.jpg", link: "biomass_furnaces.html", cost: 6000 },
+            { name: "Biomass Briquettes", image: "biomass_briquettes.jpg", link: "biomass_briquettes.html", cost: 250 },
+            { name: "Biomass Digesters", image: "biomass_digesters.jpg", link: "biomass_digesters.html", cost: 5000 },
+            { name: "Biomass Gasifiers", image: "biomass_gasifiers.jpg", link: "biomass_gasifiers.html", cost: 7000 }
+        ],
+        "Heat Pumps": [
+            { name: "Air Source Heat Pumps", image: "air_source_heat_pumps.jpg", link: "air_source_heat_pumps.html", cost: 6000 },
+            { name: "Ground Source Heat Pumps", image: "ground_source_heat_pumps.jpg", link: "ground_source_heat_pumps.html", cost: 10000 },
+            { name: "Water Source Heat Pumps", image: "water_source_heat_pumps.jpg", link: "water_source_heat_pumps.html", cost: 12000 },
+            { name: "Hybrid Heat Pumps", image: "hybrid_heat_pumps.jpg", link: "hybrid_heat_pumps.html", cost: 15000 },
+            { name: "Geothermal Heat Pumps", image: "geothermal_heat_pumps.jpg", link: "geothermal_heat_pumps.html", cost: 20000 },
+            { name: "Heat Pump Water Heaters", image: "heat_pump_water_heaters.jpg", link: "heat_pump_water_heaters.html", cost: 8000 },
+            { name: "Heat Pump Dryers", image: "heat_pump_dryers.jpg", link: "heat_pump_dryers.html", cost: 2500 },
+            { name: "Absorption Heat Pumps", image: "absorption_heat_pumps.jpg", link: "absorption_heat_pumps.html", cost: 18000 },
+            { name: "Ductless Mini Split Heat Pumps", image: "ductless_mini_split_heat_pumps.jpg", link: "ductless_mini_split_heat_pumps.html", cost: 4000 },
+            { name: "Solar Assisted Heat Pumps", image: "solar_assisted_heat_pumps.jpg", link: "solar_assisted_heat_pumps.html", cost: 15000 }
+        ]
+};
+
+
+function displayProducts(recommendation) {
+            const productsList = document.getElementById('productsList');
+            productsList.innerHTML = "";
+            if (products[recommendation]) {
+                products[recommendation].forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.classList.add('product-item');
+                    productItem.onclick = () => {
+                        openModal(product);
+                    };
+                    const productImage = document.createElement('img');
+                    productImage.src = product.image;
+                    productImage.alt = product.name;
+                    const productName = document.createElement('p');
+                    productName.textContent = product.name;
+                    productItem.appendChild(productImage);
+                    productItem.appendChild(productName);
+                    productsList.appendChild(productItem);
+                });
+            } else {
+                productsList.textContent = "No products available for this recommendation.";
+            }
+        }
+
+        function openModal(product) {
+            const modal = document.getElementById("productModal");
+            document.getElementById("modalProductName").textContent = product.name;
+            document.getElementById("modalProductImage").src = product.image;
+            document.getElementById("modalProductDescription").textContent = product.description;
+            document.getElementById("modalProductCost").textContent = `Cost: $${product.cost}`;
+            document.getElementById("addProductButton").onclick = () => {
+                addToCost(product.cost);
+                closeModal();
+            };
+            modal.style.display = "block";
+            stopScrolling();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("productModal");
+            modal.style.display = "none";
+            startScrolling();
+        }
+
+        let totalCost = 0;
+
+        function addToCost(cost) {
+            totalCost += cost;
+            document.getElementById("costTotal").textContent = `$${totalCost}`;
+        }
 
         onAuthStateChanged(auth, async (user) => {
             if (!user) {
@@ -369,104 +550,82 @@
             const country = consumptionData.country || 'US';
             const state = consumptionData.state || '';
 
-            const totalConsumption = tvHours + phoneHours + washer + dryer + kitchenHours + (carMiles * (carType === 'EV' ? 2 : 1));
+            // Adding weights to different usage patterns
+            const tvWeight = 1.5;
+            const phoneWeight = 0.5;
+            const fridgeWeight = 5;
+            const washerWeight = 3;
+            const dryerWeight = 3;
+            const kitchenWeight = 2;
+            const carWeightEV = 4;
+            const carWeightGas = 2;
+
+            const totalConsumption = 
+                (tvHours * tvWeight) + 
+                (phoneHours * phoneWeight) + 
+                (fridge ? fridgeWeight : 0) + 
+                (washer * washerWeight) + 
+                (dryer * dryerWeight) + 
+                (kitchenHours * kitchenWeight) + 
+                (carMiles * (carType === 'EV' ? carWeightEV : carWeightGas));
 
             let recommendation = "";
             let explanation = "";
 
-            if (totalConsumption > 20) {
+            if (totalConsumption > 30) {
                 recommendation = "Solar Energy";
-                explanation = `Given your high total energy consumption (${totalConsumption} units) and your use of an electric vehicle, solar energy is recommended to maximize efficiency and sustainability, especially in a region like ${state}, ${country}.`;
-            } else if (totalConsumption > 10) {
+                explanation = `Given your very high total energy consumption (${totalConsumption} units) and your use of an electric vehicle, solar energy is highly recommended to maximize efficiency and sustainability, especially in a region like ${state}, ${country}.`;
+            } else if (totalConsumption > 20) {
                 recommendation = "Wind Energy";
-                explanation = `With a moderate total energy consumption (${totalConsumption} units), wind energy is suitable for your needs. This source will effectively complement your usage patterns in ${state}, ${country}.`;
+                explanation = `With a high total energy consumption (${totalConsumption} units), wind energy is suitable for your needs. This source will effectively complement your usage patterns in ${state}, ${country}.`;
+            } else if (totalConsumption > 10) {
+                recommendation = "Biomass";
+                explanation = `Your moderate total energy consumption (${totalConsumption} units) makes biomass a great fit. Biomass energy offers a renewable and consistent energy source in ${state}, ${country}.`;
             } else {
-                recommendation = "Hydropower";
-                explanation = `Your low total energy consumption (${totalConsumption} units) makes hydropower a great fit, offering reliable and consistent energy with minimal environmental impact in ${state}, ${country}.`;
+                recommendation = "Heat Pumps";
+                explanation = `Your low total energy consumption (${totalConsumption} units) makes heat pumps an excellent choice. They provide efficient and sustainable heating and cooling solutions in ${state}, ${country}.`;
             }
 
             return [recommendation, explanation];
         }
 
         // Automatic horizontal scroll
-        function displayProducts(recommendation) {
-    const productsList = document.getElementById('productsList');
-    productsList.innerHTML = "";
-    if (products[recommendation]) {
-        products[recommendation].forEach(product => {
-            const productItem = document.createElement('div');
-            productItem.classList.add('product-item');
-            productItem.onclick = () => {
-                stopScrolling();  // Stop scrolling when a product is clicked
-                showProductDetails(product);
-            };
-            const productImage = document.createElement('img');
-            productImage.src = product.image;
-            productImage.alt = product.name;
-            const productName = document.createElement('p');
-            productName.textContent = product.name;
-            productItem.appendChild(productImage);
-            productItem.appendChild(productName);
-            productsList.appendChild(productItem);
-        });
-    } else {
-        productsList.textContent = "No products available for this recommendation.";
-    }
-}
-
-function showProductDetails(product) {
-    const modal = document.getElementById('productModal');
-    const modalContent = document.getElementById('productModalContent');
-    modalContent.innerHTML = `
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h3>${product.name}</h3>
-        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: auto;">
-        <p><strong>Cost:</strong> ${product.cost}</p>
-        <p>${product.description}</p>
-        
-    `;
-    modal.style.display = 'block';
-}
-
-
-window.onclick = function(event) {
-    const modal = document.getElementById('productModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-}
-
-function closeModal() {
-    const modal = document.getElementById('productModal');
-    modal.style.display = "none";
-    startScrolling();  // Restart scrolling when the modal is closed
-}
         let isScrolling = true;
-const productsBox = document.getElementById('productsBox');
-const startScrolling = () => {
-    isScrolling = true;
-    scrollProducts();
-};
-const stopScrolling = () => {
-    isScrolling = false;
-};
-const scrollProducts = () => {
-    if (isScrolling) {
-        productsBox.scrollLeft += 3;
-        if (productsBox.scrollLeft >= productsBox.scrollWidth - productsBox.clientWidth) {
-            productsBox.scrollLeft = 0;
-        }
-        requestAnimationFrame(scrollProducts);
-    }
-};
+        const productsBox = document.getElementById('productsBox');
+        const startScrolling = () => {
+            isScrolling = true;
+            scrollProducts();
+        };
+        const stopScrolling = () => {
+            isScrolling = false;
+        };
+        const scrollProducts = () => {
+            if (isScrolling) {
+                productsBox.scrollLeft += 1;
+                if (productsBox.scrollLeft >= productsBox.scrollWidth - productsBox.clientWidth) {
+                    productsBox.scrollLeft = 0;
+                }
+                requestAnimationFrame(scrollProducts);
+            }
+        };
 
-productsBox.addEventListener('mouseover', stopScrolling);
-productsBox.addEventListener('mouseout', startScrolling);
+        productsBox.addEventListener('mouseover', stopScrolling);
+        productsBox.addEventListener('mouseout', startScrolling);
 
-// Start the automatic scrolling
-startScrolling();
+        // Start the automatic scrolling
+        startScrolling();
 
+        // Modal close functionality
+        const modal = document.getElementById("productModal");
+        const span = document.getElementsByClassName("close")[0];
+        span.onclick = () => {
+            closeModal();
+        };
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
     </script>
 </body>
 </html>
-
