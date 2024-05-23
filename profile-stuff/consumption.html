@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energy Consumption Data</title>
-    <style>
+ <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -152,7 +152,7 @@
         const db = getFirestore();
     
         async function updateStates(countryCode) {
-            const url = `http://api.geonames.org/searchJSON?formatted=true&country=${countryCode}&username=rith&style=full`;
+            const url = `https://secure.geonames.org/searchJSON?formatted=true&country=${countryCode}&username=rith&style=full`;
             try {
                 const response = await fetch(url);
                 const data = await response.json();
