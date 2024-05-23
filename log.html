@@ -5,19 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <link rel="stylesheet" href="log.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
 </head>
 <body>
+    <nav class="navbar">
+        <a href="index.html">
+          <div class="logo">
+              <img src="imgs/logo.png" alt="Logo">
+          </div>
+      </a>
+      <ul class="menu">
+        <li class="menu-item"><a href="about-us.html">ABOUT US</a></li>
+        <li class="menu-item dropdown">
+          <a href="#">SOLUTIONS</a>
+          <div class="dropdown-content solution-dropdown"> <!-- Added a specific class for the dropdown under Solutions -->
+            <a href="solution-pg/wind.html">Wind Energy</a>
+            <a href="solution-pg/solar.html">Solar Energy</a>
+            <a href="solution-pg/biomass.html">Biomass Energy</a>
+            <a href="solution-pg/heat-pump.html">Heat Pumps</a>
+          </div>
+        </li>
+        <li class="menu-item"><a href="tax-incentives.html">TAX INCENTIVES</a></li>
+        <li class="menu-item"><a href="press-pg/press.html">PRESS</a></li>
+        <li class="menu-item"><a href="log.html">ACCOUNT</a></li>
+        <li class="menu-item dropdown">
+          <a href="#">TSA</a>
+          <div class="dropdown-content tsa-dropdown">
+            <a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a>
+              <a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a>
+              <a href="pdfs/TSA final submission works cited.pdf">Sources</a>
+              <a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a>
+          </div>
+        </li>
+      </ul>
+      </nav>
     <div class="wrapper">
         <div class="form-wrapper sign-in">
             <form id="loginForm">
                 <h2>Login</h2>
                 <div class="input-group">
-                    <input type="text" required id="loginEmail">
-                    <label for="loginEmail">Email</label>
+                    <input type="text" required>
+                    <label for="">Username</label>
                 </div>
                 <div class="input-group">
-                    <input type="password" required id="loginPassword">
-                    <label for="loginPassword">Password</label>
+                    <input type="password" required>
+                    <label for="">Password</label>
                 </div>
                 <div class="remember">
                     <label><input type="checkbox"> Remember me</label>
@@ -55,94 +88,183 @@
         </div> 
     </div>
     <div class="verification-note">
-        <p>** TSA Judges, this Login/Signup form is functional and you will receive a verification### Updated `log.html`
-
-Ensure that your `log.html` correctly handles user authentication and redirection to the consumption data page after signup.
-</p>
+        <p>** TSA Judges, this Login/Signup form is functional and you will receive a verification email after signing up. **</p>
+    </div>
+    
+   
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        import { set, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
         const firebaseConfig = {
-            apiKey: "AIzaSyAysHF-FjVDptC3VadfbkT-s8ltHU9wn7k",
-            authDomain: "amazing-smile-416123.firebaseapp.com",
-            projectId: "amazing-smile-416123",
-            storageBucket: "amazing-smile-416123.appspot.com",
-            messagingSenderId: "18059462355",
-            appId: "1:18059462355:web:41916e5c504ce105f83626",
-            measurementId: "G-3T7PXWTKCL"
+            apiKey: "AIzaSyC-9eTdswPzCtB4Xv9jtulZC1ST7S3Sq90",
+            authDomain: "clubs-dc55d.firebaseapp.com",
+            databaseURL: "https://clubs-dc55d-default-rtdb.firebaseio.com",
+            projectId: "clubs-dc55d",
+            storageBucket: "clubs-dc55d.appspot.com",
+            messagingSenderId: "703230626834",
+            appId: "1:703230626834:web:f0284113095a7868a59ccb",
+            measurementId: "G-GGDX6RJM3V"
         };
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
-        const db = getFirestore();
+        const database = getDatabase();
+        const signUpBtnLink = document.querySelector('.signUpBtn-link');
+        const signInBtnLink = document.querySelector('.signInBtn-link');
+        const wrapper = document.querySelector('.wrapper');
 
-        document.querySelector('.signUpBtn-link').addEventListener('click', () => {
-            document.querySelector('.wrapper').classList.toggle('active');
+        signUpBtnLink.addEventListener('click', () => {
+            wrapper.classList.toggle('active');
             clearLoginForm();
         });
 
-        document.querySelector('.signInBtn-link').addEventListener('click', () => {
-            document.querySelector('.wrapper').classList.toggle('active');
+        signInBtnLink.addEventListener('click', () => {
+            wrapper.classList.toggle('active');
         });
 
+        const signInForm = document.querySelector('.form-wrapper.sign-in form');
+        const signUpForm = document.querySelector('.form-wrapper.sign-up form');
         const loginForm = document.getElementById('loginForm');
-        const signupForm = document.getElementById('signupForm');
 
-        signupForm.addEventListener('submit', async (e) => {
+        signUpForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const fullName = document.getElementById('fullName').value;
-            const email = document.getElementById('signupEmail').value;
-            const password = document.getElementById('signupPassword').value;
+            const fullName = signUpForm.querySelector('#fullName').value;
+            const email = signUpForm.querySelector('#signupEmail').value;
+            const password = signUpForm.querySelector('#signupPassword').value;
 
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
                 await sendEmailVerification(userCredential.user);
 
-                const userRef = doc(db, 'users', userCredential.user.uid);
-                await setDoc(userRef, {
+                // Store user data, role, and signup timestamp in the Realtime Database
+                const userRef = ref(database, 'users');
+                const timestamp = (new Date()).toISOString();
+                push(userRef, {
                     username: fullName,
-                    email: email
+                    email: email,
+                    signupTimestamp: timestamp,
                 });
 
                 alert("Registration successful! Please check your email for verification.");
                 clearSignupForm();
-                window.location.href = "profile-stuff/consumption.html"; // Redirect to consumption data page
             } catch (error) {
-                console.error("Error during registration:", error);
-                alert(`Registration failed: ${error.message}`);
+                console.error("Error during registration", error.message);
+                alert("Registration failed. Please try again.");
             }
         });
 
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
+            const email = loginForm.querySelector('input[type="text"]').value; // Assuming email is used for login
+            const password = loginForm.querySelector('input[type="password"]').value;
 
             try {
+                // Add a small delay before attempting login
+                await new Promise(resolve => setTimeout(resolve, 500));
+
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
+                // Check if the email is verified
                 if (userCredential.user.emailVerified) {
-                    alert("Login successful!");
+                    console.log("User logged in successfully", userCredential.user);
+                    alert("Login successful!"); // Display an alert
+
+                    // Update last login timestamp in the database
+                    const userRef = ref(database, 'users/' + userCredential.user.uid);
+                    // Assuming 'users' is the path where user records are stored and each user has a record keyed by their UID
+                    set(userRef, {
+                        lastLogin: Date.now() // Use Date.now() to get the current timestamp
+                    });
+
+                    // Clear login form after successful login
                     clearLoginForm();
-                    window.location.href = "profile-stuff/profile.html"; // Redirect to profile page
+                    
+                    // Redirect to the homepage (index.html)
+                    window.location.href = "index.html";
                 } else {
+                    console.log("Email not verified");
                     alert("Please verify your email before logging in.");
                 }
             } catch (error) {
-                console.error("Error during login:", error);
-                alert("Login failed. Please check your credentials.");
+                console.error("Error during login", error.message);
+                alert("Login failed. Please check your credentials."); // Display an alert
             }
         });
 
+        // Function to clear login form
         function clearLoginForm() {
             loginForm.reset();
         }
 
+        // Function to clear signup form
         function clearSignupForm() {
-            signupForm.reset();
+            signUpForm.reset();
         }
+        const functions = require('firebase-functions');
+        const admin = require('firebase-admin');
+
+        admin.initializeApp();
+
+        exports.modifyVerificationEmail = functions.auth.user().onCreate(async (user) => {
+            const email = user.email;
+            const displayName = user.displayName;
+            
+            // Customize the subject and content of the verification email
+            const modifiedEmailContent = `
+                Hello ${displayName || ''},
+                
+                Follow this link to verify your email address.
+                
+                https://your-custom-domain.com/__/auth/action?mode=verifyEmail&oobCode=${user.emailVerificationToken}
+                
+                If you didn’t ask to verify this address, you can ignore this email.
+                
+                Thanks,
+                Your team
+            `;
+
+            // Send the modified verification email
+            await admin.auth().sendPasswordResetEmail(email, {
+                emailTemplate: {
+                    subject: 'EarthWise - Verify your Email address', // Change the subject here
+                    html: modifiedEmailContent
+                }
+            });
+        });
     </script>
+    <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-column">
+            <h3>Earthwise</h3>
+            <p>Earthwise is an informational website committed to demystifying renewable energy solutions
+              offering detailed insights into their workings, installation processes, and benefits. 
+              Through our platform, users can connect with local businesses specializing in sustainable energy solutions and explore tax incentives to make eco-conscious choices more accessible. 
+            </p>
+
+          </div>
+          <div class="footer-column">
+            <h3>Sections</h3>
+            <p><a href="about-us.html">About Us</a></p>
+            <p><a href="solution-pg/wind.html">Solutions</a></p>
+            <p><a href="tax-incentives.html">Tax Incentives</a></p>
+            <p><a href="press-pg/press.html">Press</a></p>
+            <p><a href="log.html">Account</a></p>
+          </div>
+          <div class="footer-column">
+            <h3>Links</h3>
+            <p><a href="pdfs/Pix student-copyright-checklist (1).pdf">Copyright Checklist</a></p>
+            <p><a href="pdfs/work-log_hs(part1)-combined.pdf">Work Log</a></p>
+            <p><a href="pdfs/TSA final submission works cited.pdf">Sources</a></p>
+            <p><a href="pdfs/Branding_Guidelines_1.pdf">Branding Guidelines</a></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Earthwise All rights reserved.</p>
+        </div>
+      </footer>
+      
 </body>
 </html>

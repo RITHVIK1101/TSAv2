@@ -1,52 +1,50 @@
 .pollution-section {
     background-image: url('../imgs/pollution.jpg');
-    background-size: cover; /* Adjust background size as needed */
-    background-position: center; /* Center the background image */
+    background-size: cover;
+    background-position: center;
     height: 100vh;
-    width: 100%; /* Adjust width as needed */
+    width: 100%;
     padding-bottom: 2.5%;
+    box-sizing: border-box;
 }
 
 .pollution-overlay {
     display: flex;
+    flex-wrap: wrap; 
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    background-color: rgba(15, 15, 15, 0.225); /* Adjust the background color and opacity as needed */
+    background-color: rgba(15, 15, 15, 0.225);
 }
 
 .pollution-image {
     flex: 1;
-    padding-right: 2%; /* Adjust padding to move the image more to the right */
-    padding-top: 15%;
-    padding-bottom: 8%;
+    padding: 15% 2% 8% 2%; 
     display: flex;
-    justify-content: flex-end; /* Align the image to the right */
+    justify-content: flex-end;
 }
 
 .pollution-image img {
-    max-width: 40vw;
-    height: 32vw;
+    max-width: 100%;
+    height: auto;
     display: block;
     border-radius: 10px;
     transition: transform 0.5s ease;
     box-shadow: 2.5px 5px 12px #0f0f0f90;
-    margin-right: 4vw;
-    filter: brightness(90%); /* Adjust brightness percentage as needed (80% used here) */
+    filter: brightness(90%);
     opacity: 90%;
 }
 
 .pollution-image img:hover {
     transform: scale(1.025);
-    transition: transform 0.75s ease, box-shadow 0.75s ease;
     box-shadow: 5px 10px 25px #0f0f0f90;
 }
 
 .pollution-text {
     flex: 1;
-    margin-top: 8vh;
-    margin-left: 5.5%;
-    max-width: 50%; /* Adjust the maximum width as needed */
+    margin: 8vh 5.5% 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .pollution-text h2 {
@@ -58,7 +56,52 @@
 .pollution-text p {
     font-size: 1.25vw;
     line-height: 1.6;
-    margin-bottom: 3%; /* Adjust margin as needed */
+    margin-bottom: 3%;
     color: white;
-    filter: brightness(180%); /* Adjust brightness percentage as needed (80% used here) */
+    filter: brightness(180%);
+}
+
+@media (max-width: 1024px) {
+    .pollution-text h2 {
+        font-size: 5vw;
+    }
+
+    .pollution-text p {
+        font-size: 1.7vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .pollution-text {
+        margin: 4vh 3% 0;
+    }
+
+    .pollution-image {
+        padding: 10% 2% 5% 2%;
+    }
+
+    .pollution-text h2 {
+        font-size: 6vw;
+    }
+
+    .pollution-text p {
+        font-size: 2.3vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .pollution-text {
+        margin: 2vh 2% 0;
+    }
+    .pollution-image img {
+        margin-right: 0;
+    }
+
+    .pollution-text h2 {
+        font-size: 7vw;
+    }
+
+    .pollution-text p {
+        font-size: 3vw;
+    }
 }
