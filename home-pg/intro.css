@@ -2,6 +2,7 @@
     background-color: #ffffff;
     padding-top: 5.5%;
     padding-bottom: 10%;
+    box-sizing: border-box;
 }
 
 .about-us-content {
@@ -11,31 +12,34 @@
     align-items: center;
     max-width: 80vw;
     margin: 0 auto;
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
 }
 
-.about-us-image{
-    flex: 1;
-    padding-right: 10%;
-    padding-top: 10%;
-    
+.about-us-image {
+    flex: 1 1 100%;
+    padding-right: 5%;
+    padding-top: 5%;
+    box-sizing: border-box;
+    text-align: center; /* Center image on small screens */
 }
-.about-us-image.animate{
+.about-us-image.animate {
     animation: flyInLeft 1s ease forwards;
 }
-.about-us-text.animate{
+
+.about-us-text.animate {
     animation: flyInRight 1s ease forwards;
 }
 
 .about-us-image img {
-    max-width: 40vw;
+    max-width: 100%;
     height: auto;
     display: block;
     border-radius: 10px;
     transition: transform 0.5s ease;
     box-shadow: 2.5px 5px 12px #0f0f0f90;
-  }
+}
 
-  @keyframes flyInLeft {
+@keyframes flyInLeft {
     0% {
         transform: translateX(-100%);
         opacity: 0;
@@ -45,6 +49,7 @@
         opacity: 1;
     }
 }
+
 @keyframes flyInRight {
     0% {
         transform: translateX(100%);
@@ -56,19 +61,22 @@
     }
 }
 
-.about-us-image img:hover{
+.about-us-image img:hover {
     transform: scale(1.025);
     transition: transform 0.75s ease, box-shadow 0.75s ease;
     box-shadow: 5px 10px 25px #0f0f0f90;
 }
 
 .about-us-text {
-    flex: 1;
+    flex: 1 1 100%;
     color: #666666;
+    padding: 2%;
+    box-sizing: border-box;
+    text-align: center; 
 }
 
 .about-us-text h2 {
-    font-size: 3.1em;
+    font-size: 2em;
     margin-bottom: 5px;
     background-image: linear-gradient(to right, #026932c3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%);
     -webkit-background-clip: text;
@@ -76,7 +84,29 @@
 }
 
 .about-us-text p {
-    font-size: 1.25vw;
+    font-size: 1em; 
     line-height: 1.6;
     margin-bottom: 1%;
+}
+
+
+@media (min-width: 769px) {
+    .about-us-image {
+        flex: 1;
+        padding-right: 10%;
+        padding-top: 10%;
+    }
+    .about-us-text {
+        flex: 1;
+        text-align: left; 
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-text h2 {
+        font-size: 2.5em;
+    }
+    .about-us-text p {
+        font-size: 1.2em;
+    }
 }

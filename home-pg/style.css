@@ -13,6 +13,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 #video-background {
@@ -24,6 +25,7 @@ body, html {
   width: auto;
   height: auto;
   z-index: -1;
+  object-fit: cover; /* Ensures the video covers the screen */
 }
 
 .text-overlay {
@@ -34,19 +36,21 @@ body, html {
   color: #ffffff; /* White text color */
   text-align: center;
   z-index: 1;
+  padding: 0 1rem; 
 }
 
 .text-overlay h1 {
-  font-size: 8rem;
+  font-size: 8vw; 
   font-family: 'Outfit', sans-serif;
-  margin-top:19%;
-  margin-bottom: 15%;
+  margin-top: 10%; 
+  margin-bottom: 5%;
 }
 
-.intro-section{
+.intro-section {
   position: relative;
   height: 100vh;
 }
+
 #typing-effect {
   border-right: 2px solid black; /* Cursor style */
   white-space: nowrap;
@@ -66,14 +70,13 @@ body, html {
   from, to { border-color: transparent }
   50% { border-color: rgb(9, 237, 100) }
 }
+
 .gradient-period {
   background: linear-gradient(to bottom, #a0ff70 0%, #00ff7f 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline;
 }
-
-
 
 .progress-container {
   width: 100%;
@@ -90,10 +93,42 @@ body, html {
   background-color: #4caf50;
   width: 0;
 }
+
 .arrowd {
   position: absolute;
-  top: calc(50% + 9.2rem); /* Adjust as needed to position below the overlay text */
+  top: calc(50% + 9.2vw); 
   left: 50%;
   transform: translateX(-50%) scale(0.7); 
-  font-size: 6em;
+  font-size: 6vw; 
+}
+
+
+@media (max-width: 1200px) {
+  .text-overlay h1 {
+    font-size: 6vw;
+  }
+  .arrowd {
+    top: calc(50% + 7.5vw);
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-overlay h1 {
+    font-size: 5vw;
+  }
+  .arrowd {
+    top: calc(50% + 6vw);
+    font-size: 4.5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-overlay h1 {
+    font-size: 4vw;
+  }
+  .arrowd {
+    top: calc(50% + 5vw);
+    font-size: 4vw;
+  }
 }

@@ -1,42 +1,63 @@
 .another-section {
-    background-color: #ffffff;
-    padding-bottom: 5%;
-    padding-right: -15%;
+  background-color: #ffffff;
+  padding-bottom: 5%;
+  padding-right: 0;
+  box-sizing: border-box;
 }
 
 .another-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    max-width: 80%;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  max-width: 80vw;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .another-heading {
-    flex: 1;
-    text-align: left; /* Align the heading to the left */
+  flex: 1 1 100%;
+  text-align: center;
+  padding: 2%;
+  box-sizing: border-box;
 }
 
 .another-heading h2 {
-    font-size: 3.1em;
-    margin-bottom: 2.3em; /* Adjust margin as needed */
-    background-image: linear-gradient(to right, #026932c3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%); /* Brown to Orange to Green gradient */
-    -webkit-background-clip: text; /* Apply background to the text */
-    color: transparent;
+  font-size: 2.5em;
+  margin-bottom: 1.5em;
+  background-image: linear-gradient(to right, #026932c3 5%, #06a713ca 10%, #05d168c8 60%, #027224c9 90%);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .another-text {
-    flex: 1;
-    text-align: left;
-    margin-right: -3em;
+  flex: 1 1 100%;
+  text-align: center;
+  margin: 0;
+  padding: 2%;
+  box-sizing: border-box;
 }
 
-
 .another-text p {
-    font-size: 1.25em;
-    line-height: 1.6;
-    margin-bottom: 2%;
-    color: #666666; 
-    margin-top: -2em;
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+  color: #666666; 
+  margin-top: 0;
+}
+
+@media (min-width: 769px) {
+  .another-heading, .another-text {
+      flex: 1;
+      text-align: left;
+      padding: 0;
+  }
+  
+  .another-heading h2 {
+      font-size: 3.1em;
+  }
+
+  .another-text p {
+      font-size: 1.25em;
+  }
 }

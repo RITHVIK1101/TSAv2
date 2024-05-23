@@ -1,10 +1,10 @@
-.about-us-title-text{
+.about-us-title-text {
     text-align: center;
     padding-top: 5%;
 }
 
 .about-us-title-text h1 {
-    font-size: 5em;
+    font-size: 3em;
     color: #666;
     position: relative;
 }
@@ -16,9 +16,23 @@
     background-color: #666;
     bottom: -3px;
     left: 50%;
-    width:0%;
+    width: 0%;
     animation: expandBar 1s ease-in-out forwards;
 }
+.navbar {
+    background-color: #4b4a475b; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Rubik', sans-serif;
+    padding: 2%;
+    margin-top: 0;
+    width: 100%;
+    height: 6%;
+    position: fixed; 
+    z-index: 2; 
+    backdrop-filter: blur(4px);
+  }
 
 @keyframes expandBar {
     0% {
@@ -42,15 +56,17 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    max-width: 90%; /* Adjusted from 1200px */
     margin: 0 auto;
+    flex-wrap: wrap; /* Added for responsiveness */
 }
 
-.about-us-image{
+.about-us-image {
     flex: 1;
-    padding-right: 10%;
+    padding-right: 5%; /* Adjusted padding */
     opacity: 0;
     animation: flyInLeft 1s ease forwards;
+    min-width: 300px; /* Ensures minimum size */
 }
 
 @keyframes flyInLeft {
@@ -64,9 +80,8 @@
     }
 }
 
-
 .about-us-image img {
-    max-width: 650px;
+    max-width: 100%; /* Adjusted from 650px */
     height: auto;
     display: block;
     border-radius: 10px;
@@ -74,7 +89,7 @@
     box-shadow: 2.5px 5px 12px #0f0f0f90;
 }
 
-.about-us-image img:hover{
+.about-us-image img:hover {
     transform: scale(1.05);
     transition: transform 0.75s ease, box-shadow 0.75s ease;
     box-shadow: 5px 10px 25px #0f0f0f90;
@@ -85,15 +100,16 @@
     color: #666666;
     opacity: 0;
     animation: flyInRight 1s ease forwards;
+    min-width: 300px; /* Ensures minimum size */
 }
 
 @keyframes flyInRight {
     0% {
-        transform: translateX(100%); /* Start position: outside the viewport on the right */
+        transform: translateX(100%);
         opacity: 0;
     }
     100% {
-        transform: translateX(0); /* End position: translated to its original position */
+        transform: translateX(0);
         opacity: 1;
     }
 }
@@ -101,7 +117,7 @@
 .about-us-text p {
     font-size: 1.3em;
     line-height: 1.6;
-    margin-bottom: 15px; /* Adjust margin as needed */
+    margin-bottom: 15px;
 }
 
 button {
@@ -117,7 +133,7 @@ button {
     width: 15rem;
     border-radius: 4px;
 }
- 
+
 button:hover {
     background-color: #1f9405;
 }
@@ -126,13 +142,13 @@ button:hover {
     padding: 10px 0;
     text-align: center;
 }
- 
+
 .team h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #666;
 }
- 
+
 .team-cards {
     display: flex;
     flex-wrap: wrap;
@@ -140,28 +156,29 @@ button:hover {
     gap: 15px;
     margin-top: 20px;
 }
- 
+
 .card {
     background-color: white;
     border-radius: 6px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
-    width: 18rem;
-    height: 12rem;
+    width: 100%;
+    max-width: 18rem;
+    height: auto;
     margin-top: 10px;
 }
- 
+
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
 }
- 
+
 .card-img {
-    width: 18rem;
-    height: 12rem;
+    width: 100%; /* Adjusted from 18rem */
+    height: auto; /* Adjusted from 12rem */
 }
- 
+
 .card-img img {
     width: 100%;
     height: 100%;
@@ -171,18 +188,39 @@ button:hover {
 .card-info {
     padding-bottom: 20px;
 }
- 
+
 .card-info button {
     margin: 1rem 1rem;
 }
- 
+
 .card-name {
     color: #666;
     font-size: 2rem;
     margin: 10px 0;
 }
- 
+
 .card-email {
     font-size: 1rem;
     color: #555;
+}
+
+@media screen and (max-width: 768px) {
+    .about-us-title-text h1 {
+        font-size: 2em;
+    }
+
+    .about-us-content {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 0 5%; /* Adjust padding for smaller screens */
+    }
+
+    .about-us-image,
+    .about-us-text {
+        padding: 0;
+        min-width: 100%; /* Ensures elements take full width */
+    }
+
+    .card {
+        max-width: 100%; /* Ensures cards take full width */
+    }
 }

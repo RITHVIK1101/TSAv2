@@ -31,7 +31,7 @@
     left: 0;
     width: 100%;
 }
-
+as
 .soluion-text p {
     font-size: 1.25em;
     line-height: 1.6;
@@ -79,9 +79,9 @@
 
 .solution-column-text h2 {
     font-size: 3.1em;
-    margin-bottom: 20px; /* Adjust margin as needed */
+    margin-bottom: 20px; 
     background-image: linear-gradient(to right, #006400 40%, #003300 90%); /* Brown to Orange to Green gradient */
-    -webkit-background-clip: text; /* Apply background to the text */
+    -webkit-background-clip: text; 
     color: transparent;
 }
 
